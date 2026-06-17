@@ -1,0 +1,19 @@
+{
+  "name": "bestlocal-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BestLocal — landing page (statyczna, deploy na Railway)",
+  "scripts": {
+    "start": "node server.js",
+    "build:images": "node scripts/build-images.mjs",
+    "build:icons": "node scripts/build-icons.mjs",
+    "build": "npm run build:images && npm run build:icons && npm run build:html",
+    "build:html": "node scripts/build-html.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

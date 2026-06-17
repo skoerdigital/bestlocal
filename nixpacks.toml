@@ -1,0 +1,7 @@
+# Railway/Nixpacks: runtime needs no npm deps (server.js uses only Node built-ins).
+# sharp is a build-only devDependency and is intentionally skipped here.
+[phases.install]
+cmds = ["npm install --omit=dev"]
+
+[start]
+cmd = "node server.js"
