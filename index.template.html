@@ -1,61 +1,56 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-type="serif">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
 <!-- =======================================================================
      PRZED PUBLIKACJĄ podmień w razie potrzeby:
-       • https://bestlocal.pl       → Twoja docelowa domena (canonical, OG, JSON-LD)
-       • {PODMIOT}                   → pełna nazwa administratora danych (sp. z o.o. / NIP)
-       • YOUR_WEB3FORMS_ACCESS_KEY   → klucz z https://web3forms.com (formularz zapisu)
+       • https://bestlocal.pl            → Twoja docelowa domena (canonical, OG, JSON-LD)
+       • {PODMIOT}, {Imię i nazwisko}, {BLOK_ZALOZYCIELA} → dane firmy/założyciela
+       • YOUR_WEB3FORMS_ACCESS_KEY → klucz z https://web3forms.com (formularz zapisu)
      ======================================================================= -->
 
 <title>Wizytówka Google zadbana za Ciebie — opinie, posty, Mapy | BestLocal</title>
-<meta name="description" content="BestLocal prowadzi Twoją wizytówkę Google za Ciebie: gotowe odpowiedzi na opinie, posty, wyższa pozycja w Mapach i wiedza o konkurencji. 15 minut tygodniowo zamiast agencji. Dołącz do listy oczekujących." />
+<meta name="description" content="BestLocal prowadzi Twoją wizytówkę Google za Ciebie: gotowe odpowiedzi na opinie, posty, wyższa pozycja w Mapach, wywiad konkurencyjny i widoczność w AI. 15 minut tygodniowo. Dołącz do listy oczekujących." />
 <link rel="canonical" href="https://bestlocal.pl/" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-<meta name="theme-color" content="#0f2e22" />
+<meta name="theme-color" content="#16301F" />
 <meta name="author" content="BestLocal" />
 <meta name="format-detection" content="telephone=no" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="BestLocal" />
 <meta property="og:locale" content="pl_PL" />
 <meta property="og:title" content="Wizytówka Google zadbana za Ciebie — BestLocal" />
-<meta property="og:description" content="Gotowe odpowiedzi na opinie, posty i zdobywanie ocen. Wyższa pozycja w Mapach i wiedza o konkurencji. Ty tylko akceptujesz z telefonu — 15 minut tygodniowo." />
+<meta property="og:description" content="Opinie, posty, pozycja w Mapach Google, wywiad konkurencyjny i widoczność w AI — Ty tylko akceptujesz z telefonu. 15 minut tygodniowo." />
 <meta property="og:url" content="https://bestlocal.pl/" />
 <meta property="og:image" content="https://bestlocal.pl/assets/img/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="BestLocal — Twoja wizytówka Google zadbana za Ciebie." />
 
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Wizytówka Google zadbana za Ciebie — BestLocal" />
-<meta name="twitter:description" content="Opinie, posty i pozycja w Mapach Google — Ty tylko akceptujesz z telefonu. Wiedza o konkurencji w cenie. Dołącz do listy oczekujących." />
+<meta name="twitter:description" content="Opinie, posty i pozycja w Mapach Google — Ty tylko akceptujesz z telefonu. Wywiad konkurencyjny i widoczność w AI w cenie." />
 <meta name="twitter:image" content="https://bestlocal.pl/assets/img/og-image.jpg" />
 
-<!-- Icons / PWA -->
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
-<!-- Performance: preload LCP image + the two primary self-hosted fonts -->
-<link rel="preload" as="image" type="image/avif"
-      href="/assets/img/hero-barber-1120.avif"
-      imagesrcset="/assets/img/hero-barber-560.avif 560w, /assets/img/hero-barber-840.avif 840w, /assets/img/hero-barber-1120.avif 1120w"
-      imagesizes="(max-width: 1020px) 92vw, 46vw" fetchpriority="high" />
-<link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-normal-7.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/fonts/hanken-grotesk-latin-normal-3.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-normal-s3.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-ext-normal-s2.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-italic-s1.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-ext-italic-s0.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin-normal-7.woff2" crossorigin />
 
 <link rel="stylesheet" href="/fonts/fonts.css" />
-<link rel="stylesheet" href="/css/base.css" />
-<link rel="stylesheet" href="/css/sections.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/v3.css" />
+<link rel="stylesheet" href="/css/extra.css" />
 
-<!-- Structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +71,9 @@
       "name": "BestLocal",
       "url": "https://bestlocal.pl/",
       "inLanguage": "pl-PL",
-      "publisher": { "@id": "https://bestlocal.pl/#organization" }
+      "publisher": {
+        "@id": "https://bestlocal.pl/#organization"
+      }
     },
     {
       "@type": "SoftwareApplication",
@@ -85,24 +82,99 @@
       "operatingSystem": "Web",
       "url": "https://bestlocal.pl/",
       "inLanguage": "pl-PL",
-      "description": "Zarządzanie wizytówką Google i lokalnym SEO za firmę: gotowe odpowiedzi na opinie, posty, zdobywanie ocen, pozycja w Mapach oraz wiedza o konkurencji.",
+      "description": "Zarządzanie wizytówką Google i lokalnym SEO za firmę: odpowiedzi na opinie, posty, zdobywanie ocen, pozycja w Mapach oraz wiedza o konkurencji.",
       "offers": [
-        { "@type": "Offer", "name": "Start", "price": "99", "priceCurrency": "PLN", "availability": "https://schema.org/PreOrder" },
-        { "@type": "Offer", "name": "Pro", "price": "199", "priceCurrency": "PLN", "availability": "https://schema.org/PreOrder" }
+        {
+          "@type": "Offer",
+          "name": "Start",
+          "price": "99",
+          "priceCurrency": "PLN",
+          "availability": "https://schema.org/PreOrder"
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "199",
+          "priceCurrency": "PLN",
+          "availability": "https://schema.org/PreOrder"
+        }
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Czy to kolejne „narzędzie AI”?", "acceptedAnswer": { "@type": "Answer", "text": "Nie w tym sensie, w jakim się tego obawiasz. Nie ma czatu ani generatora tekstów i nie musisz niczego „promptować”. System wykonuje konkretną pracę na prawdziwych danych — Twoje opinie, Twój profil, publiczne informacje o konkurencji — a każdy tekst czytasz i akceptujesz Ty. Do pisania używamy modeli językowych, ale to hydraulika, nie produkt." } },
-        { "@type": "Question", "name": "Nie znam się na pozycjonowaniu. Dam radę?", "acceptedAnswer": { "@type": "Answer", "text": "Tak, bo niczego nie konfigurujesz. Wpisujesz nazwę firmy, a potem tylko akceptujesz albo odrzucasz gotowe propozycje. Wszystko jest po polsku i po ludzku." } },
-        { "@type": "Question", "name": "Ile czasu mi to zajmie?", "acceptedAnswer": { "@type": "Answer", "text": "Około 15 minut tygodniowo: przejrzeć propozycje, kliknąć „Akceptuję”, przeczytać podsumowanie." } },
-        { "@type": "Question", "name": "Skąd wiecie, na co narzekają klienci mojej konkurencji?", "acceptedAnswer": { "@type": "Answer", "text": "Z publicznie dostępnych opinii w internecie. Czytamy je hurtowo i wyciągamy powtarzające się wątki. Przy każdym wniosku pokazujemy źródło — możesz sprawdzić każdy cytat." } },
-        { "@type": "Question", "name": "Czy publikujecie coś bez mojej wiedzy?", "acceptedAnswer": { "@type": "Answer", "text": "Nie. Domyślnie nic nie wychodzi bez Twojego kliknięcia. Jeśli kiedyś dodamy tryb automatyczny, będzie wyłącznie na Twoje wyraźne życzenie." } },
-        { "@type": "Question", "name": "Czy to zastąpi agencję?", "acceptedAnswer": { "@type": "Answer", "text": "Jeśli agencja prowadzi Ci reklamy, stronę i strategię — nie, i nie udajemy, że tak. Zastępujemy systematyczną, żmudną pracę przy wizytówce, opiniach i obserwowaniu konkurencji. Wielu firmom to wystarcza." } },
-        { "@type": "Question", "name": "Co z moimi danymi i RODO?", "acceptedAnswer": { "@type": "Answer", "text": "Dane trzymamy na serwerach w Unii Europejskiej. Zbieramy tylko to, co potrzebne do działania usługi. W każdej chwili możesz poprosić o wgląd lub usunięcie. Szczegóły w polityce prywatności." } },
-        { "@type": "Question", "name": "Kiedy start i co dostaję za zapis?", "acceptedAnswer": { "@type": "Answer", "text": "Planowany start: jesień 2026. Zapisani dostają wcześniejszy dostęp, 3 miesiące za pół ceny (pierwsze 100 firm) i wpływ na kolejność funkcji. Piszemy rzadko: o postępach i starcie." } },
-        { "@type": "Question", "name": "Czy działa dla mojej branży?", "acceptedAnswer": { "@type": "Answer", "text": "Budujemy dla firm lokalnych: beauty, gastronomia, motoryzacja, zdrowie, usługi domowe i podobne. Jeśli masz wątpliwości — zapisz się i odpowiedz na pytanie o branżę, wprost powiemy, czy to dla Ciebie." } }
+        {
+          "@type": "Question",
+          "name": "Czy to kolejne „narzędzie AI\"?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie w tym sensie, w jakim się tego obawiasz. Nie ma czatu, nie ma generatora tekstów, nie musisz niczego „promptować\". System wykonuje konkretną pracę na prawdziwych danych — Twoje opinie, Twój profil, publiczne informacje o konkurencji — a każdy tekst czytasz i akceptujesz Ty. Tak, do pisania używamy modeli językowych. Ale to hydraulika, nie produkt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nie znam się na pozycjonowaniu. Dam radę?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak, bo niczego nie konfigurujesz. Wpisujesz nazwę firmy, a potem tylko akceptujesz albo odrzucasz gotowe propozycje. Wszystko jest po polsku i po ludzku."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ile czasu mi to zajmie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Około 15 minut tygodniowo: przejrzeć propozycje, kliknąć „Akceptuję\", przeczytać podsumowanie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Skąd wiecie, na co narzekają klienci mojej konkurencji?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Z publicznie dostępnych opinii w internecie. Czytamy je hurtowo i wyciągamy powtarzające się wątki. Przy każdym wniosku pokazujemy źródło — możesz sprawdzić każdy cytat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy publikujecie coś bez mojej wiedzy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie. Domyślnie nic nie wychodzi bez Twojego kliknięcia. Jeśli kiedyś dodamy tryb automatyczny, będzie wyłącznie na Twoje wyraźne życzenie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy to zastąpi agencję?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jeśli agencja prowadzi Ci reklamy, stronę i strategię — nie, i nie udajemy, że tak. Zastępujemy systematyczną, żmudną pracę przy wizytówce, opiniach i obserwowaniu konkurencji. Wielu firmom to wystarcza."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co z moimi danymi i RODO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dane trzymamy na serwerach w Unii Europejskiej. Zbieramy tylko to, co potrzebne do działania usługi. W każdej chwili możesz poprosić o wgląd lub usunięcie. Szczegóły w polityce prywatności."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kiedy start i co dostaję za zapis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Planowany start: jesień 2026. Zapisani dostają: wcześniejszy dostęp, 3 miesiące za pół ceny (pierwsze 100 firm) i wpływ na kolejność funkcji. Piszemy rzadko: o postępach i starcie. Żadnego spamu, wypisujesz się jednym kliknięciem."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy działa dla mojej branży?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Budujemy dla firm lokalnych: beauty, gastro, moto, zdrowie, usługi domowe i podobne. Jeśli masz wątpliwości — zapisz się i odpowiedz na pytanie o branżę, wprost powiemy, czy to dla Ciebie."
+          }
+        }
       ]
     }
   ]
@@ -110,617 +182,8 @@
 </script>
 </head>
 <body>
-
 <a class="skip-link" href="#top">Przejdź do treści</a>
-
-<!-- ===================== NAV ===================== -->
-<div class="nav-wrap">
-  <nav class="nav" aria-label="Główna nawigacja">
-    <a class="nav-logo" href="#top" aria-label="BestLocal — start">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <path d="M13 1.5C8.3 1.5 4.5 5.3 4.5 10c0 6.4 8.5 14.5 8.5 14.5S21.5 16.4 21.5 10c0-4.7-3.8-8.5-8.5-8.5Z" fill="#0f2e22"></path>
-        <circle cx="13" cy="10" r="3.4" fill="var(--accent)"></circle>
-      </svg>
-      <span>BestLocal</span>
-    </a>
-    <div class="nav-links">
-      <a href="#jak-to-dziala">Jak to działa</a>
-      <a href="#funkcje">Co dostajesz</a>
-      <a href="#cennik">Cennik</a>
-      <a href="#faq">Pytania</a>
-    </div>
-    <a class="btn btn-dark" href="#zapis">Chcę wcześniejszy dostęp</a>
-  </nav>
-</div>
-
-<main id="top">
-
-<!-- ===================== HERO ===================== -->
-<header class="hero-shell">
-  <div class="hero on-dark">
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <span class="eyebrow" data-reveal><span class="dot"></span> Wczesny dostęp · start jesienią 2026</span>
-
-        <h1 data-reveal style="--rd:0.12s">
-          <span class="hl">Twoja wizytówka Google</span>
-          <span class="hl"><em>zadbana za&nbsp;Ciebie</em></span>
-        </h1>
-
-        <p class="hero-sub" data-reveal style="--rd:0.35s">
-          Gotowe odpowiedzi na opinie, posty i zbieranie ocen od klientów. Ty tylko akceptujesz jednym kliknięciem z telefonu — 15&nbsp;minut tygodniowo zamiast agencji za 1000&nbsp;zł/mc.
-        </p>
-
-        <form class="signup-form" id="hero-form" novalidate data-reveal style="--rd:0.5s" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="Nowy zapis na listę BestLocal (hero)" />
-          <input type="hidden" name="from_name" value="BestLocal — lista oczekujących" />
-          <input type="hidden" name="source" value="hero" />
-          <div class="signup-row">
-            <label class="sr-only" for="hero-email">Adres e-mail</label>
-            <input id="hero-email" type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" required />
-            <button class="btn btn-accent" type="submit">Chcę wcześniejszy dostęp <span class="arr" aria-hidden="true">→</span></button>
-          </div>
-          <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <p class="form-error" role="alert"></p>
-          <button type="button" class="u-link" data-toggle-extra="hero-extra" style="border:0;background:none;justify-self:start;font-size:13.5px;color:var(--on-dark-soft);padding:0">+ branża i miasto (opcjonalnie)</button>
-          <div class="signup-extra" id="hero-extra" hidden>
-            <label class="sr-only" for="hero-industry">Branża</label>
-            <select id="hero-industry" name="industry" aria-label="Branża">
-              <option value="">Branża…</option>
-              <option>fryzjer / barber</option><option>beauty</option><option>gastronomia</option>
-              <option>moto</option><option>zdrowie</option><option>usługi domowe</option><option>inna</option>
-            </select>
-            <label class="sr-only" for="hero-city">Miasto</label>
-            <input id="hero-city" type="text" name="city" placeholder="Miasto" />
-            <span class="hint">opcjonalnie — pomożesz nam ustawić kolejność branż</span>
-          </div>
-          <label class="consent">
-            <input type="checkbox" name="consent" />
-            <span>Zapisując się, zgadzam się na otrzymywanie informacji o produkcie BestLocal na podany e-mail. Administratorem danych jest <span class="placeholder">{PODMIOT}</span>. Mogę wypisać się w każdej chwili. <a href="/polityka-prywatnosci.html">Polityka prywatności</a></span>
-          </label>
-          <p class="form-note">Start jesienią 2026. Pierwsze 100 firm: <strong>3 miesiące za pół ceny</strong>. Zero spamu — napiszemy o starcie i wynikach budowy.</p>
-        </form>
-      </div>
-
-      <div class="hero-visual" data-reveal="scale" style="--rd:0.3s">
-        <figure class="hero-photo">
-          <picture>
-            <source type="image/avif" sizes="(max-width: 1020px) 92vw, 46vw" srcset="/assets/img/hero-barber-560.avif 560w, /assets/img/hero-barber-840.avif 840w, /assets/img/hero-barber-1120.avif 1120w" />
-            <source type="image/webp" sizes="(max-width: 1020px) 92vw, 46vw" srcset="/assets/img/hero-barber-560.webp 560w, /assets/img/hero-barber-840.webp 840w, /assets/img/hero-barber-1120.webp 1120w" />
-            <img src="/assets/img/hero-barber-1120.jpg" srcset="/assets/img/hero-barber-560.jpg 560w, /assets/img/hero-barber-840.jpg 840w, /assets/img/hero-barber-1120.jpg 1120w" sizes="(max-width: 1020px) 92vw, 46vw" width="1120" height="747" alt="Barber przy pracy w swoim zakładzie — przykład lokalnej firmy z zadbaną wizytówką Google" fetchpriority="high" decoding="async" />
-          </picture>
-        </figure>
-        <div class="float-card fc-review">
-          <div class="fc-head">
-            <span class="ava">KM</span>
-            <div>
-              <div class="who">Klaudia M. <span class="stars" aria-label="4 na 5 gwiazdek">★★★★☆</span></div>
-            </div>
-          </div>
-          <p class="quote">„Koloryzacja super, ale czekałam 20 minut po umówionej godzinie…”</p>
-          <div class="fc-reply">
-            <span class="tag">Propozycja odpowiedzi · czeka na Ciebie</span>
-            <p class="draft">Dziękujemy, Pani Klaudio! Za poślizg przepraszamy — pracujemy nad tym. Zapraszamy ponownie 💚</p>
-            <button class="fc-accept" type="button">Akceptuję</button>
-          </div>
-        </div>
-        <div class="float-card fc-rank">
-          <span class="pin">
-            <svg width="18" height="18" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-              <path d="M13 1.5C8.3 1.5 4.5 5.3 4.5 10c0 6.4 8.5 14.5 8.5 14.5S21.5 16.4 21.5 10c0-4.7-3.8-8.5-8.5-8.5Z" fill="currentColor"></path>
-            </svg>
-          </span>
-          <div>
-            <div class="lbl">„barber Wola” w Mapach</div>
-            <div class="val">#7 → #2 <span class="up">↑ 5 miejsc</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-strip">
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="mq-item">fryzjerzy i barberzy</span><span class="mq-item">beauty</span><span class="mq-item">gastronomia</span><span class="mq-item">warsztaty</span><span class="mq-item">gabinety</span><span class="mq-item">usługi domowe</span>
-          <span class="mq-item">fryzjerzy i barberzy</span><span class="mq-item">beauty</span><span class="mq-item">gastronomia</span><span class="mq-item">warsztaty</span><span class="mq-item">gabinety</span><span class="mq-item">usługi domowe</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- ===================== STATS ===================== -->
-<section class="section" style="padding-block:0" aria-label="Najważniejsze liczby">
-  <div class="stats-row" data-stagger="0.1">
-    <div class="stat" data-reveal><div class="num"><span data-count="99">99</span>&nbsp;zł<small>/mc</small></div><div class="cap">zamiast 500–1500 zł za agencję</div></div>
-    <div class="stat" data-reveal><div class="num">~<span data-count="15">15</span>&nbsp;min</div><div class="cap">Twojej pracy tygodniowo</div></div>
-    <div class="stat" data-reveal><div class="num"><span data-count="60">60</span>&nbsp;s</div><div class="cap">na start — wpisujesz nazwę firmy, resztę znajdujemy</div></div>
-    <div class="stat" data-reveal><div class="num"><span data-count="5">5</span></div><div class="cap">konkurentów stale na oku</div></div>
-  </div>
-</section>
-
-<!-- ===================== PROBLEM ===================== -->
-<section class="section" id="problem" aria-labelledby="problem-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-reveal>Lustro</span>
-      <h2 class="section-title" id="problem-title" data-reveal style="--rd:0.1s">Brzmi <em>znajomo?</em></h2>
-    </div>
-    <ul class="problem-list">
-      <li class="problem-item" data-reveal><span class="idx">01</span><p>Masz 14 opinii. Konkurent z drugiej strony ulicy — <mark>120</mark>.</p></li>
-      <li class="problem-item" data-reveal><span class="idx">02</span><p>Ktoś wystawił Ci 1 gwiazdkę i <mark>wisi bez odpowiedzi</mark> od trzech miesięcy.</p></li>
-      <li class="problem-item" data-reveal><span class="idx">03</span><p>Wpisujesz „fryzjer + swoja dzielnica” i <mark>nie ma Cię</mark> poza własną ulicą.</p></li>
-      <li class="problem-item" data-reveal><span class="idx">04</span><p>Płacisz komuś za „pozycjonowanie” i <mark>nie wiesz, co właściwie dostajesz</mark>.</p></li>
-      <li class="problem-item" data-reveal><span class="idx">05</span><p>Wiesz, że wizytówka jest ważna. Ale zawsze <mark>przegrywa z prowadzeniem firmy</mark>.</p></li>
-    </ul>
-    <div class="problem-close" data-reveal>
-      <p>To nie Twoja wina. To praca na kilka godzin tygodniowo — i dokładnie tę pracę zdejmujemy z Ciebie.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== HOW IT WORKS ===================== -->
-<section class="section" id="jak-to-dziala" aria-labelledby="how-title" style="padding-top:0">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-reveal>Mechanizm, nie magia</span>
-      <h2 class="section-title" id="how-title" data-reveal style="--rd:0.1s">Jak to <em>działa</em></h2>
-    </div>
-    <div class="steps" data-stagger="0.14">
-      <article class="step" data-reveal>
-        <span class="step-num" aria-hidden="true">1</span>
-        <h3>Wskaż swoją firmę</h3>
-        <p>Wpisujesz nazwę firmy, potwierdzasz wizytówkę. Znajdujemy Twój profil w Google i konkurentów wokół Ciebie.</p>
-        <span class="step-time">60 sekund, żadnej konfiguracji</span>
-      </article>
-      <article class="step" data-reveal>
-        <span class="step-num" aria-hidden="true">2</span>
-        <h3>Akceptuj gotowe działania</h3>
-        <p>Przygotowujemy za Ciebie: odpowiedzi na nowe opinie, posty na wizytówkę, poprawki w profilu, prośby o opinie do klientów. Dostajesz powiadomienie, czytasz, klikasz „Akceptuję” — i to jest opublikowane. <strong>Nic nigdy nie wychodzi bez Twojej zgody.</strong></p>
-        <span class="step-time">1 kliknięcie z telefonu</span>
-      </article>
-      <article class="step" data-reveal>
-        <span class="step-num" aria-hidden="true">3</span>
-        <h3>Patrz, jak rośnie</h3>
-        <p>Co tydzień krótkie podsumowanie: ile opinii przybyło, jak zmieniła się Twoja pozycja w Mapach, co zrobiliśmy i co znaleźliśmy u konkurencji. Po ludzku, bez wykresów dla specjalistów.</p>
-        <span class="step-time">co tydzień, po polsku</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURES ===================== -->
-<section class="features-section section on-dark" id="funkcje" aria-labelledby="features-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-reveal>Pięć rzeczy, których nikt nie robi za Ciebie</span>
-      <h2 class="section-title" id="features-title" data-reveal style="--rd:0.1s">Co <em>dostajesz</em></h2>
-      <p class="lead" data-reveal style="--rd:0.2s">Każda obietnica z mechanizmem — żadnych pustych superlatyw. Kliknij, żeby zobaczyć, jak to wygląda w praktyce.</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-tabs" role="tablist" aria-label="Funkcje produktu" data-reveal>
-        <button class="feature-tab" role="tab" aria-selected="true" id="tab-1" aria-controls="mock-1">
-          <span class="ft-idx" aria-hidden="true">01</span>
-          <span>
-            <h3>Opinie zaopiekowane: odpowiedzi i zdobywanie nowych</h3>
-            <span class="ft-body"><div>
-              <p>Na każdą nową opinię — pochwałę i krytykę — dostajesz gotową, kulturalną odpowiedź napisaną poprawną polszczyzną, w tonie Twojej firmy. Akceptujesz lub poprawiasz jednym dotknięciem. Do tego zdobywamy nowe opinie: kod QR przy kasie, link do wysłania klientowi po wizycie, gotowe podziękowania. Zgodnie z zasadami Google — żadnego kupowania ani filtrowania ocen.</p>
-              <em class="ft-example">Klientka chwali koloryzację, ale wytyka 20 minut spóźnienia. Proponowana odpowiedź dziękuje, odnosi się do spóźnienia i zaprasza ponownie — Ty tylko klikasz „Akceptuję”.</em>
-            </div></span>
-          </span>
-          <span class="ft-progress" aria-hidden="true"><i></i></span>
-        </button>
-
-        <button class="feature-tab" role="tab" aria-selected="false" id="tab-2" aria-controls="mock-2">
-          <span class="ft-idx" aria-hidden="true">02</span>
-          <span>
-            <h3>Wizytówka zawsze aktualna i aktywna</h3>
-            <span class="ft-body"><div>
-              <p>Pilnujemy kompletności profilu: godziny (także świąteczne), usługi, zdjęcia, opis. Przygotowujemy 2–4 posty miesięcznie powiązane z tym, czego klienci w Twojej branży naprawdę szukają. Profil, który żyje, Google pokazuje chętniej — a klient widzi firmę, która działa.</p>
-              <em class="ft-example">Przed majówką dostajesz do akceptacji aktualizację godzin i post o dostępnych terminach.</em>
-            </div></span>
-          </span>
-          <span class="ft-progress" aria-hidden="true"><i></i></span>
-        </button>
-
-        <button class="feature-tab" role="tab" aria-selected="false" id="tab-3" aria-controls="mock-3">
-          <span class="ft-idx" aria-hidden="true">03</span>
-          <span>
-            <h3>Wiesz, na co narzekają klienci konkurencji</h3>
-            <span class="ft-body"><div>
-              <p>Czytamy za Ciebie publiczne opinie Twoich konkurentów i wyciągamy z nich konkrety: co klienci chwalą, na co się skarżą, czego szukają i nie znajdują. Każde takie odkrycie zamieniamy w propozycję działania dla Ciebie. Do tego porównanie cen z publicznych cenników i godziny największego ruchu w okolicy.</p>
-              <em class="ft-example">U trzech pobliskich warsztatów klienci powtarzają, że „nie da się dodzwonić”. Masz rezerwacje online? Dostajesz gotowy post i dopisek do usług, który robi z tego Twoją przewagę.</em>
-            </div></span>
-          </span>
-          <span class="ft-progress" aria-hidden="true"><i></i></span>
-        </button>
-
-        <button class="feature-tab" role="tab" aria-selected="false" id="tab-4" aria-controls="mock-4">
-          <span class="ft-idx" aria-hidden="true">04</span>
-          <span>
-            <h3>Pilnujemy nieuczciwej konkurencji w Mapach</h3>
-            <span class="ft-body"><div>
-              <p>Część firm oszukuje: dopisuje do nazwy wizytówki frazy typu „Mechanik Warszawa Tanio 24h”, żeby sztucznie wskoczyć wyżej. To łamie zasady Google, ale ktoś musi to zgłosić. Wykrywamy takie wizytówki w Twojej okolicy, zbieramy dowody i przygotowujemy gotowe zgłoszenie — po usunięciu naciągacza Twoja pozycja rośnie.</p>
-              <em class="ft-example">„Salon Beauty Anna | Manicure Hybrydowy Paznokcie Mokotów Tanio” — nazwa na szyldzie: „Salon Anna”. Zgłoszenie gotowe do wysłania w 2 minuty.</em>
-            </div></span>
-          </span>
-          <span class="ft-progress" aria-hidden="true"><i></i></span>
-        </button>
-
-        <button class="feature-tab" role="tab" aria-selected="false" id="tab-5" aria-controls="mock-5">
-          <span class="ft-idx" aria-hidden="true">05</span>
-          <span>
-            <h3>Sprawdzamy, czy polecają Cię nowe wyszukiwarki</h3>
-            <span class="ft-body"><div>
-              <p>Coraz więcej osób zamiast w Google szuka w ChatGPT i podobnych: „poleć dobrego barbera na Woli”. Regularnie sprawdzamy, czy w tych odpowiedziach pojawia się Twoja firma, czy konkurencja — i co zrobić, żeby pojawiała się częściej. Tu nie zgadujemy: pokazujemy zapytania i odpowiedzi.</p>
-              <em class="ft-example">Na 10 zapytań o Twoją kategorię w Twoim mieście konkurent X pada w 6 odpowiedziach, Ty w 1. Dostajesz listę rzeczy, które to zmieniają.</em>
-            </div></span>
-          </span>
-          <span class="ft-progress" aria-hidden="true"><i></i></span>
-        </button>
-      </div>
-
-      <div class="feature-stage" data-reveal="scale">
-        <!-- mock 1: reviews -->
-        <div class="mock" id="mock-1" role="tabpanel" aria-labelledby="tab-1">
-          <div class="ui-card">
-            <div class="uc-label">Nowa opinia · Google <span class="badge">do akceptacji</span></div>
-            <div style="display:flex;gap:10px;align-items:center">
-              <span class="ava" style="width:34px;height:34px;border-radius:50%;background:var(--sage-2);display:grid;place-items:center;font-weight:700;font-size:13px;color:var(--forest-700)">KM</span>
-              <div style="line-height:1.25"><b style="font-size:13.5px">Klaudia M.</b><br /><span style="color:#e8a13c;font-size:11px;letter-spacing:2px">★★★★☆</span></div>
-            </div>
-            <p style="color:var(--ink-soft);font-size:13.5px">„Koloryzacja super, ale czekałam 20 minut po umówionej godzinie. Trochę szkoda, bo miałam wpaść jeszcze na brwi.”</p>
-            <div style="border-top:1px dashed var(--paper-line);padding-top:10px;display:grid;gap:8px">
-              <span style="font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--forest-600)">Propozycja odpowiedzi · ton: ciepły</span>
-              <p style="font-size:13.5px">Pani Klaudio, dziękujemy za 4 gwiazdki i szczerość! Za poślizg przepraszamy — przebudowaliśmy grafik, żeby się nie powtórzył. Na brwi zapraszamy z chęcią 💚</p>
-              <div style="display:flex;gap:8px">
-                <span class="ui-chip" style="background:var(--accent);border-color:transparent;color:var(--accent-ink);font-weight:700">Akceptuję ✓</span>
-                <span class="ui-chip">Popraw</span>
-              </div>
-            </div>
-          </div>
-          <p class="mock-caption">Każda odpowiedź czeka na Twoje kliknięcie. Nic nie wychodzi samo.</p>
-        </div>
-
-        <!-- mock 2: profile -->
-        <div class="mock" id="mock-2" role="tabpanel" aria-labelledby="tab-2">
-          <div class="ui-card">
-            <div class="uc-label">Twoja wizytówka · ten tydzień <span class="badge">4 działania</span></div>
-            <div>
-              <div class="check-row" style="--ckd:0.3s"><span class="ck">✓</span> Godziny na majówkę — zaktualizowane</div>
-              <div class="check-row" style="--ckd:0.55s"><span class="ck">✓</span> Post: „Wolne terminy przed długim weekendem”</div>
-              <div class="check-row" style="--ckd:0.8s"><span class="ck">✓</span> 2 nowe zdjęcia dodane do galerii</div>
-              <div class="check-row" style="--ckd:1.05s"><span class="ck">✓</span> Opis usług uzupełniony o „balayage”</div>
-            </div>
-            <div class="ui-bar"><div class="ub-head"><span>Kompletność profilu</span><span>96%</span></div><span class="ub-track"><span class="ub-fill" style="--p:0.96"></span></span></div>
-          </div>
-          <p class="mock-caption">Profil, który żyje, Google pokazuje chętniej.</p>
-        </div>
-
-        <!-- mock 3: competitor intel -->
-        <div class="mock" id="mock-3" role="tabpanel" aria-labelledby="tab-3">
-          <div class="ui-card">
-            <div class="uc-label">Wywiad konkurencyjny · warsztaty w promieniu 3 km <span class="badge">nowy wniosek</span></div>
-            <p style="font-size:14px"><b>Klienci 3 konkurentów powtarzają to samo:</b></p>
-            <div style="display:flex;flex-wrap:wrap;gap:7px">
-              <span class="ui-chip">„nie da się dodzwonić” ×7</span>
-              <span class="ui-chip">„brak terminów” ×4</span>
-              <span class="ui-chip">„cennik z sufitu” ×3</span>
-            </div>
-            <div style="background:color-mix(in oklab, var(--accent) 12%, #fff);border:1px solid color-mix(in oklab, var(--accent) 30%, transparent);border-radius:12px;padding:12px 14px;font-size:13.5px">
-              <b>Masz rezerwacje online?</b> Gotowy post i dopisek do usług czekają na akceptację — zrób z tego swoją przewagę.
-            </div>
-            <p class="spam-real">Każdy wniosek ma źródło — możesz sprawdzić każdy cytat.</p>
-          </div>
-          <p class="mock-caption">Skargi, ceny i godziny ruchu konkurencji — zamienione w konkretne działania.</p>
-        </div>
-
-        <!-- mock 4: spam fighter -->
-        <div class="mock" id="mock-4" role="tabpanel" aria-labelledby="tab-4">
-          <div class="ui-card">
-            <div class="uc-label">Wykryta nieuczciwa wizytówka · Mokotów <span class="badge">dowody zebrane</span></div>
-            <div class="spam-name">Salon Beauty Anna | <mark>Manicure Hybrydowy Paznokcie Mokotów Tanio</mark></div>
-            <p class="spam-real">Nazwa na szyldzie: <b>„Salon Anna”</b> — reszta to frazy doklejone, żeby sztucznie wskoczyć wyżej.</p>
-            <div>
-              <div class="check-row" style="--ckd:0.3s"><span class="ck">✓</span> Zrzut strony i zdjęcia szyldu zapisane</div>
-              <div class="check-row" style="--ckd:0.55s"><span class="ck">✓</span> Treść zgłoszenia do Google przygotowana</div>
-            </div>
-            <span class="ui-chip" style="background:var(--forest-900);border-color:transparent;color:var(--on-dark);font-weight:600;justify-self:start">Zgłoszenie gotowe — wysyłka w 2 minuty →</span>
-          </div>
-          <p class="mock-caption">Po usunięciu naciągacza Twoja pozycja rośnie.</p>
-        </div>
-
-        <!-- mock 5: AI checker -->
-        <div class="mock" id="mock-5" role="tabpanel" aria-labelledby="tab-5">
-          <div class="ai-q" style="position:relative;z-index:1">„poleć dobrego barbera na Woli”</div>
-          <div class="ui-card">
-            <div class="uc-label">Polecenia w nowych wyszukiwarkach <span class="badge">10 zapytań · 4 modele</span></div>
-            <div class="ui-bar"><div class="ub-head"><span>Konkurent X</span><span>6/10 odpowiedzi</span></div><span class="ub-track"><span class="ub-fill" style="--p:0.6"></span></span></div>
-            <div class="ui-bar"><div class="ub-head"><span>Konkurent Y</span><span>4/10</span></div><span class="ub-track"><span class="ub-fill" style="--p:0.4"></span></span></div>
-            <div class="ui-bar is-you"><div class="ub-head"><span><b>Twoja firma</b></span><span>1/10</span></div><span class="ub-track"><span class="ub-fill" style="--p:0.1"></span></span></div>
-            <p class="spam-real" style="margin-top:4px">Dostajesz listę rzeczy, które to zmieniają — z zapytaniami i odpowiedziami, nie zgadujemy.</p>
-          </div>
-          <p class="mock-caption">Coraz więcej klientów pyta ChatGPT zamiast wpisywać w Google.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:clamp(40px,5vw,64px);display:grid;gap:22px;justify-items:center;text-align:center">
-      <p class="lead" data-reveal style="max-width:none"><strong style="color:var(--on-dark)">Wszystko w jednym miejscu, wszystko za Twoją zgodą, wszystko po polsku.</strong></p>
-      <a class="btn btn-accent btn-lg" href="#zapis" data-reveal style="--rd:0.15s">Chcę wcześniejszy dostęp <span class="arr" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== INDUSTRIES ===================== -->
-<section class="section" id="dla-kogo" aria-labelledby="ind-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-reveal>Firmy z okolicy</span>
-      <h2 class="section-title" id="ind-title" data-reveal style="--rd:0.1s">Dla kogo <em>to jest</em></h2>
-    </div>
-    <div class="industries" data-stagger="0.08">
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-fryzjer-480.avif 480w, /assets/img/ind-fryzjer-700.avif 700w, /assets/img/ind-fryzjer-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-fryzjer-480.webp 480w, /assets/img/ind-fryzjer-700.webp 700w, /assets/img/ind-fryzjer-900.webp 900w" />
-          <img src="/assets/img/ind-fryzjer-700.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Wnętrze salonu fryzjerskiego" />
-        </picture>
-        <h3>Fryzjerzy i barberzy</h3>
-        <p>Nowe opinie po każdej wizycie i odpowiedzi, które brzmią jak Ty — nie jak szablon.</p>
-      </a>
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-beauty-480.avif 480w, /assets/img/ind-beauty-700.avif 700w, /assets/img/ind-beauty-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-beauty-480.webp 480w, /assets/img/ind-beauty-700.webp 700w, /assets/img/ind-beauty-900.webp 900w" />
-          <img src="/assets/img/ind-beauty-700.jpg" width="900" height="1350" loading="lazy" decoding="async" alt="Stylizacja paznokci w salonie beauty" />
-        </picture>
-        <h3>Salony beauty</h3>
-        <p>Posty o wolnych terminach dokładnie wtedy, kiedy klientki naprawdę szukają.</p>
-      </a>
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-gastro-480.avif 480w, /assets/img/ind-gastro-700.avif 700w, /assets/img/ind-gastro-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-gastro-480.webp 480w, /assets/img/ind-gastro-700.webp 700w, /assets/img/ind-gastro-900.webp 900w" />
-          <img src="/assets/img/ind-gastro-700.jpg" width="900" height="617" loading="lazy" decoding="async" alt="Wnętrze kawiarni" />
-        </picture>
-        <h3>Restauracje i kawiarnie</h3>
-        <p>Odpowiedź na recenzję, zanim przeczyta ją sto kolejnych osób.</p>
-      </a>
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-moto-480.avif 480w, /assets/img/ind-moto-700.avif 700w, /assets/img/ind-moto-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-moto-480.webp 480w, /assets/img/ind-moto-700.webp 700w, /assets/img/ind-moto-900.webp 900w" />
-          <img src="/assets/img/ind-moto-700.jpg" width="900" height="506" loading="lazy" decoding="async" alt="Mechanik pochylony nad silnikiem w warsztacie samochodowym" />
-        </picture>
-        <h3>Warsztaty samochodowe</h3>
-        <p>U konkurencji „nie da się dodzwonić”? Zrób z tego swoją przewagę.</p>
-      </a>
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-zdrowie-480.avif 480w, /assets/img/ind-zdrowie-700.avif 700w, /assets/img/ind-zdrowie-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-zdrowie-480.webp 480w, /assets/img/ind-zdrowie-700.webp 700w, /assets/img/ind-zdrowie-900.webp 900w" />
-          <img src="/assets/img/ind-zdrowie-700.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Gabinet medyczny" />
-        </picture>
-        <h3>Gabinety</h3>
-        <p>Fizjoterapia, stomatologia, weterynarz — kompletny, aktualny profil, bo pacjent wybiera oczami.</p>
-      </a>
-      <a class="ind-card" href="#zapis" data-reveal>
-        <picture>
-          <source type="image/avif" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-uslugi-480.avif 480w, /assets/img/ind-uslugi-700.avif 700w, /assets/img/ind-uslugi-900.avif 900w" />
-          <source type="image/webp" sizes="(max-width:640px) 92vw, (max-width:1020px) 46vw, 31vw" srcset="/assets/img/ind-uslugi-480.webp 480w, /assets/img/ind-uslugi-700.webp 700w, /assets/img/ind-uslugi-900.webp 900w" />
-          <img src="/assets/img/ind-uslugi-700.jpg" width="900" height="600" loading="lazy" decoding="async" alt="Fachowiec podczas pracy w domu klienta" />
-        </picture>
-        <h3>Usługi domowe</h3>
-        <p>Hydraulik, elektryk, sprzątanie — bądź pierwszą firmą, którą widzi cała dzielnica.</p>
-      </a>
-    </div>
-    <div class="honest-note" data-reveal>
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="10" stroke="var(--forest-600)" stroke-width="1.5"/><path d="M11 6.5v6" stroke="var(--forest-600)" stroke-width="1.5" stroke-linecap="round"/><circle cx="11" cy="15.5" r="1" fill="var(--forest-600)"/></svg>
-      <span>Jeśli Twoi klienci znajdują Cię przez Google lub polecenia — to jest dla Ciebie. Jeśli prowadzisz sklep internetowy bez lokalu i klientów z okolicy — to (jeszcze) nie dla Ciebie.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== COMPARISON ===================== -->
-<section class="section" id="porownanie" aria-labelledby="cmp-title" style="padding-top:0">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow" data-reveal>Uczciwe porównanie</span>
-      <h2 class="section-title" id="cmp-title" data-reveal style="--rd:0.1s">Ile to kosztuje — <em>i z czym porównać</em></h2>
-    </div>
-    <div class="compare-wrap" data-reveal>
-      <table class="compare">
-        <thead>
-          <tr><th></th><th>Agencja / freelancer</th><th>Samemu</th><th class="col-bl">BestLocal</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Koszt</th><td>500–1500 zł/mc</td><td>0 zł</td><td class="col-bl">od 99 zł/mc</td></tr>
-          <tr><th scope="row">Twój czas</th><td>umowy, raporty, pilnowanie</td><td>4–6 h/mc (jeśli systematycznie)</td><td class="col-bl">~15 min/tydz.</td></tr>
-          <tr><th scope="row">Co widzisz</th><td>raport raz na miesiąc</td><td>wszystko, jeśli wiesz gdzie</td><td class="col-bl">każde działanie akceptujesz, każdy wniosek ma źródło</td></tr>
-          <tr><th scope="row">Wiedza o konkurencji</th><td>rzadko</td><td>brak</td><td class="col-bl">skargi klientów, ceny, godziny ruchu</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="compare-foot" data-reveal>Dobra agencja robi więcej (strona, reklamy, strategia) — i słusznie kosztuje. My robimy systematyczną pracę przy wizytówce, opiniach i konkurencji, której nikt nie ma czasu robić ręcznie.</p>
-  </div>
-</section>
-
-<!-- ===================== PRICING ===================== -->
-<section class="section" id="cennik" aria-labelledby="price-title" style="background:var(--sage);border-radius:var(--r-lg);margin:0 10px">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow" data-reveal>Bez gwiazdek i kruczków</span>
-      <h2 class="section-title" id="price-title" data-reveal style="--rd:0.1s">Proste <em>ceny</em></h2>
-    </div>
-    <div class="pricing-grid">
-      <article class="plan" data-reveal>
-        <div class="plan-name">Start</div>
-        <div class="plan-price">99 <small>zł netto / mc</small></div>
-        <p class="plan-tag">Zadbana wizytówka — bez Twojej pracy.</p>
-        <ul>
-          <li>Zadbana wizytówka: odpowiedzi na opinie, posty, poprawki w profilu</li>
-          <li>Zdobywanie opinii: kod QR przy kasie + linki dla klientów</li>
-          <li>Tygodniowe podsumowanie po ludzku</li>
-          <li>Raport o konkurencji na start</li>
-        </ul>
-        <a class="btn btn-dark" href="#zapis">Zapisz się na listę <span class="arr" aria-hidden="true">→</span></a>
-      </article>
-      <article class="plan pro on-dark" data-reveal style="--rd:0.12s">
-        <div class="plan-name">Pro <span class="flag">przewaga nad konkurencją</span></div>
-        <div class="plan-price">199 <small style="color:var(--on-dark-faint)">zł netto / mc</small></div>
-        <p class="plan-tag">Wszystko ze Start, plus stały wywiad konkurencyjny.</p>
-        <ul>
-          <li>Stały wywiad konkurencyjny: skargi, ceny, godziny ruchu, alerty</li>
-          <li>Pilnowanie nieuczciwych wizytówek w Twojej okolicy</li>
-          <li>Sprawdzanie poleceń w nowych wyszukiwarkach (ChatGPT i podobne)</li>
-          <li>SMS-y z prośbą o opinię do klientów</li>
-        </ul>
-        <a class="btn btn-accent" href="#zapis">Zapisz się na listę <span class="arr" aria-hidden="true">→</span></a>
-      </article>
-    </div>
-    <div class="pricing-offer" data-reveal>
-      <span class="n100" aria-hidden="true">100</span>
-      <span><b>Pierwsze 100 firm z tej listy: 3 miesiące za pół ceny</b> i realny wpływ na kolejność funkcji. Dlatego warto zapisać się przed startem.</span>
-    </div>
-    <p class="pricing-fine" data-reveal>Ceny netto · Faktura VAT · Płatność kartą lub BLIK-iem · Anulujesz kiedy chcesz</p>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow" data-reveal>Wprost</span>
-      <h2 class="section-title" id="faq-title" data-reveal style="--rd:0.1s">Pytania i <em>odpowiedzi</em></h2>
-    </div>
-    <div class="faq-list" data-reveal>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Czy to kolejne „narzędzie AI”? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Nie w tym sensie, w jakim się tego obawiasz. Nie ma czatu, nie ma generatora tekstów, nie musisz niczego „promptować”. System wykonuje konkretną pracę na prawdziwych danych (Twoje opinie, Twój profil, publiczne informacje o konkurencji), a każdy tekst czytasz i akceptujesz Ty. Tak, do pisania używamy modeli językowych — ale to hydraulika, nie produkt.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Nie znam się na pozycjonowaniu. Dam radę? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Tak, bo niczego nie konfigurujesz. Wpisujesz nazwę firmy, a potem tylko akceptujesz albo odrzucasz gotowe propozycje. Wszystko jest po polsku i po ludzku.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Ile czasu mi to zajmie? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Około 15 minut tygodniowo: przejrzeć propozycje, kliknąć „Akceptuję”, przeczytać podsumowanie.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Skąd wiecie, na co narzekają klienci mojej konkurencji? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Z publicznie dostępnych opinii w internecie. Czytamy je hurtowo i wyciągamy powtarzające się wątki. Przy każdym wniosku pokazujemy źródło — możesz sprawdzić każdy cytat.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Czy publikujecie coś bez mojej wiedzy? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Nie. Domyślnie nic nie wychodzi bez Twojego kliknięcia. Jeśli kiedyś dodamy tryb automatyczny, będzie wyłącznie na Twoje wyraźne życzenie.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Czy to zastąpi agencję? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Jeśli agencja prowadzi Ci reklamy, stronę i strategię — nie, i nie udajemy, że tak. Zastępujemy systematyczną, żmudną pracę przy wizytówce, opiniach i obserwowaniu konkurencji. Wielu firmom to wystarcza.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Co z moimi danymi i RODO? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Dane trzymamy na serwerach w Unii Europejskiej. Zbieramy tylko to, co potrzebne do działania usługi. W każdej chwili możesz poprosić o wgląd lub usunięcie. Szczegóły w polityce prywatności.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Kiedy start i co dostaję za zapis? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Planowany start: jesień 2026. Zapisani dostają: wcześniejszy dostęp, 3 miesiące za pół ceny (pierwsze 100 firm) i wpływ na kolejność funkcji. Piszemy rzadko: o postępach i starcie. Żadnego spamu, wypisujesz się jednym kliknięciem.</p></div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">Czy działa dla mojej branży? <span class="fx" aria-hidden="true">+</span></button>
-        <div class="faq-a"><div><p>Budujemy dla firm lokalnych: beauty, gastro, moto, zdrowie, usługi domowe i podobne. Jeśli masz wątpliwości — zapisz się i odpowiedz na pytanie o branżę, wprost powiemy, czy to dla Ciebie.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FINAL CTA ===================== -->
-<section class="final-cta on-dark" id="zapis" aria-labelledby="cta-title">
-  <svg class="pin-bg" width="420" height="420" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-    <path d="M13 1.5C8.3 1.5 4.5 5.3 4.5 10c0 6.4 8.5 14.5 8.5 14.5S21.5 16.4 21.5 10c0-4.7-3.8-8.5-8.5-8.5Z" fill="#fff"></path>
-  </svg>
-  <div class="final-cta-inner">
-    <span class="eyebrow" data-reveal><span class="dot"></span> Lista oczekujących jest otwarta</span>
-    <h2 class="section-title" id="cta-title" data-reveal style="--rd:0.1s;font-size:clamp(40px,5vw,72px)">Wyprzedź konkurencję, <em>zanim ona wyprzedzi Ciebie</em></h2>
-    <p class="lead" data-reveal style="--rd:0.2s;text-align:center">Zapisz się — napiszemy, kiedy wystartujemy, a pierwsze 100 firm dostanie 3 miesiące za pół ceny.</p>
-    <form class="signup-form" id="cta-form" novalidate data-reveal style="--rd:0.3s;justify-items:center" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-      <input type="hidden" name="subject" value="Nowy zapis na listę BestLocal (CTA)" />
-      <input type="hidden" name="from_name" value="BestLocal — lista oczekujących" />
-      <input type="hidden" name="source" value="footer_cta" />
-      <div class="signup-row" style="width:100%">
-        <label class="sr-only" for="cta-email">Adres e-mail</label>
-        <input id="cta-email" type="email" name="email" placeholder="Twój adres e-mail" autocomplete="email" required />
-        <button class="btn btn-accent" type="submit">Chcę wcześniejszy dostęp <span class="arr" aria-hidden="true">→</span></button>
-      </div>
-      <input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-      <input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
-      <p class="form-error" role="alert"></p>
-      <div class="signup-extra" style="justify-content:center">
-        <label class="sr-only" for="cta-industry">Branża</label>
-        <select id="cta-industry" name="industry" aria-label="Branża">
-          <option value="">Branża…</option>
-          <option>fryzjer / barber</option><option>beauty</option><option>gastronomia</option>
-          <option>moto</option><option>zdrowie</option><option>usługi domowe</option><option>inna</option>
-        </select>
-        <label class="sr-only" for="cta-city">Miasto</label>
-        <input id="cta-city" type="text" name="city" placeholder="Miasto" style="max-width:150px" />
-        <span class="hint">opcjonalnie</span>
-      </div>
-      <label class="consent" style="justify-content:center;text-align:left">
-        <input type="checkbox" name="consent" />
-        <span>Zapisując się, zgadzam się na otrzymywanie informacji o produkcie BestLocal na podany e-mail. Administratorem danych jest <span class="placeholder">{PODMIOT}</span>. Mogę wypisać się w każdej chwili. <a href="/polityka-prywatnosci.html">Polityka prywatności</a></span>
-      </label>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer" id="stopka">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a class="nav-logo" href="#top" style="color:var(--on-dark);margin-bottom:16px">
-          <svg width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-            <path d="M13 1.5C8.3 1.5 4.5 5.3 4.5 10c0 6.4 8.5 14.5 8.5 14.5S21.5 16.4 21.5 10c0-4.7-3.8-8.5-8.5-8.5Z" fill="var(--accent)"></path>
-            <circle cx="13" cy="10" r="3.4" fill="#0f2e22"></circle>
-          </svg>
-          <span>BestLocal</span>
-        </a>
-        <p style="max-width:34ch;text-wrap:pretty">Twoja wizytówka Google zadbana za Ciebie — opinie, posty, pozycja w Mapach i wiedza o konkurencji. Ty tylko akceptujesz.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Na stronie</h3>
-        <ul>
-          <li><a href="#jak-to-dziala">Jak to działa</a></li>
-          <li><a href="#funkcje">Co dostajesz</a></li>
-          <li><a href="#cennik">Cennik</a></li>
-          <li><a href="#faq">Pytania i odpowiedzi</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h3>Formalności i kontakt</h3>
-        <ul>
-          <li><a href="/polityka-prywatnosci.html">Polityka prywatności</a></li>
-          <li><a href="/regulamin.html">Regulamin listy oczekujących</a></li>
-          <li><a href="mailto:kontakt@bestlocal.pl">kontakt@bestlocal.pl</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-meta">
-      <span>© 2026 BestLocal · Administrator danych: <span class="placeholder">{PODMIOT}</span></span>
-      <span>Ceny netto · Start: jesień 2026</span>
-    </div>
-  </div>
-</footer>
-
+<div id="root"><div class="progress" aria-hidden="true" style="transform: scaleX(0);"></div><header class="header "><div class="header-in"><a class="logo" href="#top"><span class="logo-dot"></span>BestLocal</a><nav class="nav" aria-label="Sekcje strony"><a href="#problem">Brzmi znajomo?</a><a href="#jak">Jak to działa</a><a href="#funkcje">Co dostajesz</a><a href="#lista">Pełna lista</a><a href="#cennik">Cennik</a><a href="#faq">Pytania</a></nav><span style="display: inline-block; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);"><a class="btn btn-sm" href="#zapis">Wcześniejszy dostęp</a></span></div></header><main><section class="hero" id="top" data-screen-label="Hero"><div class="wrap"><div class="hero-grid" style="padding-top: clamp(24px, 4vh, 56px);"><div><span class="rv in label" style="--d: 0s;">Wizytówka Google · opinie · konkurencja · AI</span><h1 class="display" style="margin: 24px 0px 20px;"><span class="w" style="--wd: 0.1s; margin-right: 0.24em;">Cała</span><span class="w" style="--wd: 0.155s; margin-right: 0.24em;">okolica</span><span class="w" style="--wd: 0.21000000000000002s; margin-right: 0.24em;">szuka</span><span class="w" style="--wd: 0.265s; margin-right: 0.24em;">w</span><span class="w" style="--wd: 0.32s; margin-right: 0.24em;">Google.</span><span class="w" style="--wd: 0.375s; margin-right: 0.24em;">Niech</span><span class="w" style="--wd: 0.43000000000000005s; margin-right: 0.24em;">znajduje</span><span class="w" style="--wd: 0.485s; margin-right: 0px;"><em>Ciebie.</em></span></h1><p class="rv in lead" style="margin-bottom: 30px; --d: 0.35s;">Wizytówka, opinie i pozycja w Mapach — zadbane za Ciebie, tydzień po tygodniu. Ty tylko akceptujesz gotowe działania z telefonu. 15 minut tygodniowo, zero żargonu.</p><div class="rv in" id="zapis" style="--d: 0.5s;"><form class="signup" id="hero-form" novalidate action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="Nowy zapis na listę BestLocal (hero)"><input type="hidden" name="from_name" value="BestLocal — lista oczekujących"><input type="hidden" name="source" value="hero"><div class="signup-row"><input type="email" id="hero-email" name="email" aria-label="Twój adres e-mail" placeholder="Twój adres e-mail" autocomplete="email" required><span class="mag"><button type="submit" class="btn btn-accent">Chcę wcześniejszy dostęp <span class="arr">→</span></button></span></div><input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="err" role="alert" hidden></p><details class="signup-extra"><summary>Branża i miasto — opcjonalnie, pomożesz nam ustawić kolejność branż</summary><div class="signup-extra-fields"><select name="industry" aria-label="Branża"><option value="" disabled selected>Branża</option><option>Fryzjer / barber</option><option>Beauty</option><option>Gastronomia</option><option>Moto</option><option>Zdrowie</option><option>Usługi domowe</option><option>Inna</option></select><input type="text" name="city" aria-label="Miasto" placeholder="Miasto"></div></details><label class="consent"><input type="checkbox" name="consent"><span>Zapisując się, zgadzam się na otrzymywanie informacji o produkcie BestLocal na podany e-mail. Administratorem danych jest <span class="ph">{PODMIOT}</span>. Mogę wypisać się w każdej chwili. <a href="/polityka-prywatnosci.html">Polityka prywatności</a></span></label><p class="micro">Start <strong>jesienią 2026</strong> · Pierwsze 100 firm: <strong>3 miesiące za pół ceny</strong> · Zero spamu — napiszemy o starcie i wynikach budowy.</p></form></div></div><div class="hero-visual"><div class="float-chip" aria-hidden="true" style="top: -22px; right: -14px;"><div><span class="fc-big">#3 <span class="fc-up">↑</span></span><span class="fc-sub">pozycja w Mapach · „manicure mokotów"</span></div></div><div class="float-chip" aria-hidden="true" style="bottom: -18px; left: -20px;"><div><span class="fc-big">+12</span><span class="fc-sub">nowych opinii w tym miesiącu</span></div></div><div class="rv rv-scale in" style="--d: 0.45s;"><div class="demo"><div class="demo-titlebar"><span>Twój telefon · 1 nowe powiadomienie</span><span class="live">na żywo</span></div><div class="review-card"><div class="review-head"><span class="avatar">AK</span><div><div class="review-name">Anna K.</div><div class="review-meta">2 godziny temu · Google</div></div><span class="stars" style="margin-left: auto;">★★★★<span class="off">★</span></span></div><p class="review-text">„Koloryzacja wyszła pięknie i obsługa bardzo miła. Jedyny minus — czekałam 20 minut po umówionej godzinie."</p></div><div class="reply-card "><div class="reply-tag">Proponowana odpowiedź — czeka na Ciebie</div><p class="reply-text">Dziękujemy za zaufanie i miłe słowa o koloryzacji! Za spóźnienie szczerze przepraszamy — pracujemy nad lepszym planowaniem wizyt. Zapraszamy ponownie, następna kawa na nasz koszt. — Studio Lume</p><div class="reply-actions"><button class="btn-approve">Akceptuję</button><button class="btn-ghost">Popraw</button></div></div></div></div></div></div><div class="pillars"><a class="rv in pillar" href="#funkcje" style="--d: 0.15s;"><span class="p-ico">★</span><span><span class="p-t">Opinie zaopiekowane</span><br><span class="p-s">odpowiedzi + zdobywanie nowych</span></span><span class="p-arr">→</span></a><a class="rv in pillar" href="#funkcje" style="--d: 0.25s;"><span class="p-ico">✓</span><span><span class="p-t">Wizytówka zawsze żywa</span><br><span class="p-s">posty, godziny, zdjęcia, usługi</span></span><span class="p-arr">→</span></a><a class="rv in pillar" href="#funkcje" style="--d: 0.35s;"><span class="p-ico">◎</span><span><span class="p-t">Wywiad konkurencyjny</span><br><span class="p-s">skargi, ceny i polecenia w AI</span></span><span class="p-arr">→</span></a></div></div></section><section class="sec sec-dark" id="problem" data-screen-label="Brzmi znajomo?"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Lustro</span><h2 class="rv  in display h2" style="--d: 0.1s;">Brzmi znajomo?</h2></div><div class="pain-list"><div class="pain lit"><span class="pain-n">/01</span><span>Masz 14 opinii. Konkurent z drugiej strony ulicy — 120.</span></div><div class="pain lit"><span class="pain-n">/02</span><span>Ktoś wystawił Ci 1 gwiazdkę i wisi bez odpowiedzi od trzech miesięcy.</span></div><div class="pain lit"><span class="pain-n">/03</span><span>Wpisujesz „fryzjer + swoja dzielnica" i nie ma Cię poza własną ulicą.</span></div><div class="pain lit"><span class="pain-n">/04</span><span>Płacisz komuś za „pozycjonowanie" i nie wiesz, co właściwie dostajesz.</span></div><div class="pain lit"><span class="pain-n">/05</span><span>Wiesz, że wizytówka jest ważna. Ale zawsze przegrywa z prowadzeniem firmy.</span></div></div><p class="rv  in pain-close" style="--d: 0.15s;">To nie Twoja wina. To praca na kilka godzin tygodniowo — <strong>i dokładnie tę pracę zdejmujemy z Ciebie.</strong></p></div></section><section class="sec" id="jak" data-screen-label="Jak to działa"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Mechanizm, nie magia</span><h2 class="rv  in display h2" style="--d: 0.1s;">Jak to działa</h2><p class="rv  in lead" style="--d: 0.2s;">Trzy kroki. Pierwszy zajmuje minutę, pozostałe dwa robią się same — Ty tylko zatwierdzasz.</p></div><div class="steps"><div class="rv rv-scale in step" style="--d: 0s;"><span class="step-n">Krok 1 / 3</span><h3>Wskaż swoją firmę</h3><p>Wpisujesz nazwę firmy, potwierdzasz wizytówkę. Znajdujemy Twój profil w Google i konkurentów wokół Ciebie. <strong>60 sekund, żadnej konfiguracji.</strong></p></div><div class="rv rv-scale in step" style="--d: 0.13s;"><span class="step-n">Krok 2 / 3</span><h3>Akceptuj gotowe działania</h3><p>Przygotowujemy za Ciebie: odpowiedzi na nowe opinie, posty na wizytówkę, poprawki w profilu, prośby o opinie. Dostajesz powiadomienie, czytasz, klikasz „Akceptuję" — i to jest opublikowane. <strong>Nic nigdy nie wychodzi bez Twojej zgody.</strong></p></div><div class="rv rv-scale in step" style="--d: 0.26s;"><span class="step-n">Krok 3 / 3</span><h3>Patrz, jak rośnie</h3><p>Co tydzień krótkie podsumowanie: ile opinii przybyło, jak zmieniła się Twoja pozycja w Mapach, co zrobiliśmy i co znaleźliśmy u konkurencji. <strong>Po ludzku, bez wykresów dla specjalistów.</strong></p></div></div></div></section><section class="sec" id="funkcje" data-screen-label="Co dostajesz" style="padding-top: 0px;"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Produkt</span><h2 class="rv  in display h2" style="--d: 0.1s;">Co dostajesz</h2><p class="rv  in lead" style="--d: 0.2s;">Pięć rzeczy, które robimy za Ciebie co tydzień. Każdą możesz wypróbować poniżej — klikaj śmiało.</p></div><div class="feature"><div class="feature-copy"><div class="rv  in " style="--d: 0s;"><span class="feature-n">01 / 05</span><h3>Opinie zaopiekowane: odpowiedzi i zdobywanie nowych</h3><p class="body">Na każdą nową opinię — pochwałę i krytykę — dostajesz gotową, kulturalną odpowiedź napisaną poprawną polszczyzną, w tonie Twojej firmy. <strong>Akceptujesz lub poprawiasz jednym dotknięciem.</strong> Do tego zdobywamy nowe opinie: kod QR przy kasie, link do wysłania klientowi po wizycie, gotowe podziękowania. Zgodnie z zasadami Google — żadnego kupowania ani filtrowania ocen.</p><p class="example">Przykład: klientka chwali koloryzację, ale wytyka 20 minut spóźnienia. Proponowana odpowiedź dziękuje, odnosi się do spóźnienia i zaprasza ponownie — Ty tylko klikasz „Akceptuję".</p></div></div><div class="rv rv-scale in " style="--d: 0.15s;"><div class="demo"><div class="demo-titlebar"><span>Nowa opinia · do akceptacji</span><span class="live">na żywo</span></div><div class="review-card"><div class="review-head"><span class="avatar">AK</span><div><div class="review-name">Anna K.</div><div class="review-meta">2 godziny temu · Google</div></div><span class="stars" style="margin-left: auto;">★★★★<span class="off">★</span></span></div><p class="review-text">„Koloryzacja wyszła pięknie i obsługa bardzo miła. Jedyny minus — czekałam 20 minut po umówionej godzinie."</p></div><div class="reply-card "><div class="reply-tag">Proponowana odpowiedź — czeka na Ciebie</div><p class="reply-text">Dziękujemy za zaufanie i miłe słowa o koloryzacji! Za spóźnienie szczerze przepraszamy — pracujemy nad lepszym planowaniem wizyt. Zapraszamy ponownie, następna kawa na nasz koszt. — Studio Lume</p><div class="reply-actions"><button class="btn-approve">Akceptuję</button><button class="btn-ghost">Popraw</button></div></div></div></div></div><div class="feature"><div class="feature-copy"><div class="rv  in " style="--d: 0s;"><span class="feature-n">02 / 05</span><h3>Wizytówka zawsze aktualna i aktywna</h3><p class="body">Pilnujemy kompletności profilu: godziny (także świąteczne), usługi, zdjęcia, opis. Przygotowujemy 2–4 posty miesięcznie powiązane z tym, czego klienci w Twojej branży naprawdę szukają. <strong>Profil, który żyje, Google pokazuje chętniej</strong> — a klient widzi firmę, która działa.</p><p class="example">Przykład: przed majówką dostajesz do akceptacji aktualizację godzin i post o dostępnych terminach.</p></div></div><div class="rv rv-scale in " style="--d: 0.15s;"><div class="demo"><div class="demo-titlebar"><span>Wizytówka · ten tydzień</span><span class="live">aktywna</span></div><div class="check-row done"><span class="check-box">✓</span><span>Godziny na majówkę zaktualizowane</span><span class="when">dziś</span></div><div class="check-row done"><span class="check-box">✓</span><span>Post: wolne terminy przed weekendem</span><span class="when">zaplanowany</span></div><div class="check-row done"><span class="check-box">✓</span><span>Nowe zdjęcia wnętrza dodane</span><span class="when">wt</span></div><div class="check-row "><span class="check-box">✓</span><span>Usługa „strzyżenie brody" opisana</span><span class="when">pon</span></div></div></div></div><div class="feature"><div class="feature-copy"><div class="rv  in " style="--d: 0s;"><span class="feature-n">03 / 05</span><h3>Wiesz, na co narzekają klienci konkurencji</h3><p class="body">Czytamy za Ciebie publiczne opinie Twoich konkurentów i wyciągamy z nich konkrety: co klienci chwalą, na co się skarżą, czego szukają i nie znajdują. <strong>Każde takie odkrycie zamieniamy w propozycję działania dla Ciebie.</strong> Do tego — tam, gdzie to możliwe — porównanie cen z publicznych cenników i godziny największego ruchu w okolicy.</p><p class="example">Przykład: u trzech pobliskich warsztatów klienci powtarzają, że „nie da się dodzwonić". Masz rezerwacje online? Dostajesz gotowy post, który robi z tego Twoją przewagę.</p></div></div><div class="rv rv-scale in " style="--d: 0.15s;"><div class="demo"><div class="demo-titlebar"><span>Wywiad · 3 warsztaty w okolicy</span><span class="live">nowe wnioski</span></div><div class="rv  in quote-row" style="--d: 0.05s;"><span class="q-src">Auto-Max ★2</span><span>„<mark>Nie da się dodzwonić</mark>, telefon milczy od rana…"</span></div><div class="rv  in quote-row" style="--d: 0.15s;"><span class="q-src">Warsztat U Romka ★1</span><span>„Trzy dni próbowałem się umówić. <mark>Nikt nie odbiera</mark>."</span></div><div class="rv  in quote-row" style="--d: 0.25s;"><span class="q-src">MotoSerwis ★2</span><span>„Dobra robota, ale <mark>umówienie wizyty to dramat</mark>."</span></div><div class="rv  in insight-result" style="--d: 0.4s;"><div class="reply-tag">Twoja przewaga — gotowa propozycja</div><p>Masz rezerwacje online — Twoja konkurencja nie odbiera telefonów. Przygotowaliśmy post i dopisek do usług: <strong>„Umówisz się w 30 sekund, bez dzwonienia"</strong>.</p><div class="reply-actions"><button class="btn-approve">Akceptuję post</button></div></div></div></div></div><div class="feature"><div class="feature-copy"><div class="rv  in " style="--d: 0s;"><span class="feature-n">04 / 05</span><h3>Pilnujemy nieuczciwej konkurencji w Mapach</h3><p class="body">Część firm oszukuje: dopisuje do nazwy wizytówki frazy typu „Mechanik Warszawa Tanio 24h", żeby sztucznie wskoczyć wyżej. To łamie zasady Google, ale ktoś musi to zgłosić. <strong>Wykrywamy takie wizytówki w Twojej okolicy, zbieramy dowody i przygotowujemy gotowe zgłoszenie</strong> — po usunięciu naciągacza Twoja pozycja rośnie.</p><p class="example">Przykład: „Salon Beauty Anna | Manicure Hybrydowy Paznokcie Mokotów Tanio" — nazwa na szyldzie: „Salon Anna". Zgłoszenie gotowe do wysłania w 2 minuty.</p></div></div><div class="rv rv-scale in " style="--d: 0.15s;"><div class="demo"><div class="demo-titlebar"><span>Mapy · Twoja okolica</span><span class="live">monitoring</span></div><div class="listing-row"><span class="listing-pin">📍</span><div><div class="listing-name">Salon Beauty Anna | <mark>Manicure Hybrydowy Paznokcie Mokotów Tanio</mark></div><div class="listing-sub">Na szyldzie: „Salon Anna" — nazwa łamie zasady Google</div></div><span class="flag-chip ">wykryto</span></div><div class="listing-row"><span class="listing-pin">📍</span><div><div class="listing-name">Salon Anna</div><div class="listing-sub">Twoja wizytówka · pozycja #4 w „manicure mokotów"</div></div><span class="flag-chip ok-chip">Ty</span></div><div class="reply-actions" style="margin-top: 16px;"><button class="btn-approve">Wyślij zgłoszenie</button><span style="font-size: 12.5px; color: var(--ink-faint);">dowody zebrane · 2 minuty</span></div></div></div></div><div class="feature"><div class="feature-copy"><div class="rv  in " style="--d: 0s;"><span class="feature-n">05 / 05</span><h3>Widoczność w AI: czy ChatGPT poleca Ciebie, czy konkurencję?</h3><p class="body">Coraz więcej osób zamiast w Google szuka w ChatGPT i podobnych: „poleć dobrego barbera na Woli". <strong>Regularnie zadajemy te pytania za Ciebie i sprawdzamy, kto pada w odpowiedziach</strong> — Ty czy konkurencja — i jak ten udział zmienia się w czasie. Dostajesz listę konkretów, które zwiększają szansę, że AI wymieni właśnie Twoją firmę. Tu nie zgadujemy: pokazujemy zapytania i odpowiedzi. <strong>Pierwsi w Polsce robimy to dla firm lokalnych.</strong></p><p class="example">Przykład: na 10 zapytań o Twoją kategorię w Twoim mieście konkurent X pada w 6 odpowiedziach, Ty w 1. Za miesiąc sprawdzamy znowu — i widzisz trend.</p></div></div><div class="rv rv-scale in " style="--d: 0.15s;"><div class="demo"><div class="demo-titlebar"><span>Nowe wyszukiwarki · ten miesiąc</span><span class="live">10 zapytań</span></div><div class="ai-query">💬 „poleć dobrego barbera na Woli"</div><div class="ai-bars"><div class="ai-bar-row"><span class="who">Konkurent X</span><span class="ai-bar-track"><span class="ai-bar-fill" style="width: 60%;"></span></span><span class="n">6/10</span></div><div class="ai-bar-row"><span class="who">Konkurent Y</span><span class="ai-bar-track"><span class="ai-bar-fill" style="width: 30%; transition-delay: 0.15s;"></span></span><span class="n">3/10</span></div><div class="ai-bar-row"><span class="who" style="color: var(--accent);">Twoja firma</span><span class="ai-bar-track"><span class="ai-bar-fill you" style="width: 10%; transition-delay: 0.3s;"></span></span><span class="n">1/10</span></div></div><p class="ai-note">Dostajesz listę konkretów, które to zmieniają — z zapytaniami i odpowiedziami do wglądu. Nie zgadujemy.</p></div></div></div><div class="allin"><p class="rv  in big" style="--d: 0s;">Wszystko w jednym miejscu, wszystko <em>za Twoją zgodą</em>, wszystko po polsku.</p><div class="rv  in " style="--d: 0.15s;"><span style="display: inline-block; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);"><a class="btn btn-accent" href="#zapis">Chcę wcześniejszy dostęp <span class="arr">→</span></a></span></div></div></div></section><section class="sec" id="lista" data-screen-label="Pełna lista funkcji"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Spec sheet</span><h2 class="rv  in display h2" style="--d: 0.1s;">Pełna lista — co robi platforma</h2><p class="rv  in lead" style="--d: 0.2s;">Wyżej pokazaliśmy pięć rzeczy w działaniu. Tu jest cała mapa — łącznie z tym, co dopiero budujemy. Zapisani na listę głosują nad kolejnością.</p></div><div class="cap-list"><div class="rv  in cap " style="--d: 0s;"><span class="cap-n">01</span><div class="cap-body"><span class="cap-name">Audyt z kolejką działań</span><span class="cap-desc">Audyt nie jest PDF-em — od razu zasila kolejkę gotowych działań do akceptacji.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0.05s;"><span class="cap-n">02</span><div class="cap-body"><span class="cap-name">Raport otwarcia: wywiad konkurencyjny</span><span class="cap-desc">Analiza opinii 5 najbliższych konkurentów: skargi, pochwały, luki w ofercie.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0.1s;"><span class="cap-n">03</span><div class="cap-body"><span class="cap-name">Gotowe odpowiedzi na opinie</span><span class="cap-desc">Każda nowa opinia dostaje propozycję odpowiedzi. Ty klikasz „Akceptuję".</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0.15000000000000002s;"><span class="cap-n">04</span><div class="cap-body"><span class="cap-name">Zbieranie opinii: QR + link + e-mail</span><span class="cap-desc">Systematyczne proszenie o opinie — zgodnie z zasadami Google.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0.2s;"><span class="cap-n">05</span><div class="cap-body"><span class="cap-name">Posty na autopilocie</span><span class="cap-desc">2–4 posty miesięcznie, podpięte pod wnioski z wywiadu konkurencyjnego.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0.25s;"><span class="cap-n">06</span><div class="cap-body"><span class="cap-name">Pozycja w Mapach: mapa dzielnic</span><span class="cap-desc">Gdzie Cię widać, a gdzie nie — sprawdzane co tydzień, pokazane na siatce.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap " style="--d: 0s;"><span class="cap-n">07</span><div class="cap-body"><span class="cap-name">Miesięczny raport „Twój miesiąc w Google"</span><span class="cap-desc">Co urosło, co zrobiliśmy, co znaleźliśmy. Po ludzku, nie po marketingowemu.</span></div><span class="cap-status cs-now">Od startu</span></div><div class="rv  in cap cap-hot" style="--d: 0.05s;"><span class="cap-n">08</span><div class="cap-body"><span class="cap-name">Monitoring poleceń w AI<span class="cap-flame" title="Pierwsi w Polsce"> ✳ pierwsi w PL</span></span><span class="cap-desc">Czy ChatGPT i nowe wyszukiwarki polecają Ciebie, czy konkurencję — co tydzień, z trendem.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.1s;"><span class="cap-n">09</span><div class="cap-body"><span class="cap-name">Wywiad konkurencyjny: monitoring ciągły</span><span class="cap-desc">Alerty: nowy konkurent, skok skarg, zmiany cen, godziny szczytu w okolicy.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.15000000000000002s;"><span class="cap-n">10</span><div class="cap-body"><span class="cap-name">Pilnowanie nieuczciwych wizytówek</span><span class="cap-desc">Wykrywanie naciągaczy w Mapach + gotowe zgłoszenia z dowodami.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.2s;"><span class="cap-n">11</span><div class="cap-body"><span class="cap-name">Wzmianki lokalne: fora i grupy</span><span class="cap-desc">„Polecicie kogoś?" w Twojej okolicy — alert + szkic odpowiedzi do wklejenia.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.25s;"><span class="cap-n">12</span><div class="cap-body"><span class="cap-name">Opinie spoza Google</span><span class="cap-desc">Facebook, GoWork, ZnanyLekarz, Booksy, TripAdvisor — w jednym miejscu.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0s;"><span class="cap-n">13</span><div class="cap-body"><span class="cap-name">SMS-y z prośbą o opinię</span><span class="cap-desc">Po wizycie klient dostaje SMS z linkiem — najkrótsza droga do nowej oceny.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.05s;"><span class="cap-n">14</span><div class="cap-body"><span class="cap-name">Spójność danych: katalogi PL</span><span class="cap-desc">Te same dane firmy w ~30–50 polskich katalogach — sprawdzane i budowane.</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.1s;"><span class="cap-n">15</span><div class="cap-body"><span class="cap-name">Audyt strony WWW</span><span class="cap-desc">Czy strona zgadza się z wizytówką + dane dla wyszukiwarek (schema).</span></div><span class="cap-status cs-soon">Wkrótce</span></div><div class="rv  in cap " style="--d: 0.15000000000000002s;"><span class="cap-n">16</span><div class="cap-body"><span class="cap-name">Pakiety branżowe</span><span class="cap-desc">Szablony postów, odpowiedzi i fraz skrojone pod beauty, moto, gastro…</span></div><span class="cap-status cs-later">W planach</span></div><div class="rv  in cap " style="--d: 0.2s;"><span class="cap-n">17</span><div class="cap-body"><span class="cap-name">Plan agencyjny i wiele lokalizacji</span><span class="cap-desc">Dla firm z kilkoma punktami i dla agencji obsługujących lokalne biznesy.</span></div><span class="cap-status cs-later">W planach</span></div></div><p class="rv  in cap-note" style="--d: 0.1s;">Status na czerwiec 2026. „Wkrótce" = pierwsze miesiące po starcie. Kolejność w dużej mierze ustawiają odpowiedzi z ankiety po zapisie.</p></div></section><section class="sec sec-dark" id="dla-kogo" data-screen-label="Dla kogo"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Dla kogo</span><h2 class="rv  in display h2" style="--d: 0.1s;">Dla kogo to jest</h2></div><div class="aud-grid"><div class="rv  in aud" style="--d: 0s;"><span class="aud-icon" aria-hidden="true">✂️</span><h3>Fryzjerzy i barberzy</h3><p>Odpowiedzi na opinie i posty o wolnych terminach — bez odrywania się od fotela.</p></div><div class="rv  in aud" style="--d: 0.1s;"><span class="aud-icon" aria-hidden="true">💅</span><h3>Salony beauty</h3><p>Więcej opinii z QR przy kasie i pilnowanie naciągaczy z „Tanio" w nazwie.</p></div><div class="rv  in aud" style="--d: 0.2s;"><span class="aud-icon" aria-hidden="true">🍽️</span><h3>Restauracje i kawiarnie</h3><p>Godziny świąteczne zawsze aktualne, kulturalna odpowiedź na każdą recenzję.</p></div><div class="rv  in aud" style="--d: 0s;"><span class="aud-icon" aria-hidden="true">🔧</span><h3>Warsztaty samochodowe</h3><p>Wiesz, że u konkurencji „nie da się dodzwonić" — i robisz z tego przewagę.</p></div><div class="rv  in aud" style="--d: 0.1s;"><span class="aud-icon" aria-hidden="true">🩺</span><h3>Gabinety</h3><p>Fizjoterapia, stomatologia, weterynarz — zaufanie buduje się w opiniach.</p></div><div class="rv  in aud" style="--d: 0.2s;"><span class="aud-icon" aria-hidden="true">🔌</span><h3>Usługi domowe</h3><p>Hydraulik czy elektryk z 80 opiniami wygrywa telefon, zanim zadzwoni klient.</p></div></div><p class="rv  in honest" style="--d: 0.2s;">Uczciwie: <strong>jeśli Twoi klienci znajdują Cię przez Google lub polecenia — to jest dla Ciebie.</strong> Jeśli prowadzisz sklep internetowy bez lokalu i klientów z okolicy — to (jeszcze) nie dla Ciebie.</p></div></section><section class="sec" id="porownanie" data-screen-label="Porównanie"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Bez ściemy</span><h2 class="rv  in display h2" style="--d: 0.1s;">Ile to kosztuje — i z czym porównać</h2></div><div class="rv rv-scale in " style="--d: 0s;"><div class="compare-scroll"><table class="compare"><th scope="col"ead><tr><th scope="col"></th><th scope="col">Agencja / freelancer</th><th scope="col">Samemu</th><th scope="col" class="col-us">BestLocal</th></tr></thead><tbody><tr><th scope="row">Koszt</th><td>500–1500 zł/mc</td><td>0 zł</td><td class="col-us">od 99 zł/mc</td></tr><tr><th scope="row">Twój czas</th><td>umowy, raporty, pilnowanie</td><td>4–6 h/mc (jeśli systematycznie)</td><td class="col-us">~15 min/tydz.</td></tr><tr><th scope="row">Co widzisz</th><td>raport raz na miesiąc</td><td>wszystko, jeśli wiesz gdzie</td><td class="col-us">każde działanie akceptujesz, każdy wniosek ma źródło</td></tr><tr><th scope="row">Wiedza o konkurencji</th><td>rzadko</td><td>brak</td><td class="col-us">skargi klientów, ceny, godziny ruchu</td></tr></tbody></table></div></div><p class="rv  in compare-note" style="--d: 0.15s;">Dobra agencja robi więcej (strona, reklamy, strategia) — i słusznie kosztuje. My robimy systematyczną pracę przy wizytówce, opiniach i konkurencji, której nikt nie ma czasu robić ręcznie.</p></div></section><section class="sec" id="cennik" data-screen-label="Cennik" style="padding-top: 0px;"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Proste ceny</span><h2 class="rv  in display h2" style="--d: 0.1s;">Dwa plany. Zero gwiazdek.</h2></div><div class="plans"><div class="rv  in plan" style="--d: 0s;"><span class="plan-name">Start</span><div class="plan-price"><span>99</span> zł <span class="per">/ mc</span></div><p class="plan-desc">Zadbana wizytówka i rosnące opinie — minimum, które robi różnicę.</p><ul><li>Zadbana wizytówka: odpowiedzi, posty, poprawki</li><li>Zdobywanie opinii: kod QR, linki dla klientów</li><li>Tygodniowe podsumowanie po ludzku</li><li>Raport o konkurencji na start</li></ul><span style="display: inline-block; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);"><a class="btn" href="#zapis">Zapisz się <span class="arr">→</span></a></span></div><div class="rv  in plan plan-pro" style="--d: 0.12s;"><span class="plan-name">Pro <span class="plan-badge">pełna przewaga</span></span><div class="plan-price"><span>199</span> zł <span class="per">/ mc</span></div><p class="plan-desc">Wszystko ze Start + stały wywiad konkurencyjny i pilnowanie Map.</p><ul><li>Stały wywiad: skargi, ceny, godziny ruchu, alerty</li><li>Pilnowanie nieuczciwych wizytówek w okolicy</li><li>Sprawdzanie poleceń w nowych wyszukiwarkach</li><li>SMS-y z prośbą o opinię do Twoich klientów</li></ul><span style="display: inline-block; transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);"><a class="btn btn-accent" href="#zapis">Zapisz się <span class="arr">→</span></a></span></div></div><div class="rv  in " style="--d: 0.15s;"><div class="pricing-notes"><span>Ceny netto</span><span>Faktura VAT</span><span>Karta lub BLIK</span><span>Anulujesz kiedy chcesz</span></div><span class="pricing-offer">Pierwsze 100 firm z tej listy: 3 miesiące za pół ceny + wpływ na kolejność funkcji</span></div></div></section><section class="sec" id="zalozyciel" data-screen-label="Kto za tym stoi" style="padding-top: 0px;"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Zaufanie</span><h2 class="rv  in display h2" style="--d: 0.1s;">Kto za tym stoi</h2></div><div class="rv  in founder" style="--d: 0s;"><div class="founder-photo-ph" aria-hidden="true"><svg viewBox="0 0 24 24" width="64" height="64" fill="none"><circle cx="12" cy="8.5" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="currentColor"/></svg></div><div><p class="founder-quote">„Buduję BestLocal, bo mali przedsiębiorcy przegrywają w Google nie przez brak jakości, tylko przez brak czasu. {BLOK_ZALOZYCIELA} — tu wstaw 2–3 zdania o doświadczeniu i motywacji."</p><div class="founder-sig"><strong>{Imię i nazwisko}</strong>założyciel BestLocal · <a href="#stopka">LinkedIn ↗</a><br>{Nazwa firmy} · kontakt@{domena}.pl</div></div></div></div></section><section class="sec" id="faq" data-screen-label="FAQ" style="padding-top: 0px;"><div class="wrap"><div class="sec-head"><span class="rv  in label" style="--d: 0s;">Wątpliwości</span><h2 class="rv  in display h2" style="--d: 0.1s;">Pytania i odpowiedzi</h2></div><div class="faq-list"><div class="rv  in " style="--d: 0s;"><div class="faq"><button class="faq-q" aria-expanded="false">Czy to kolejne „narzędzie AI"?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Nie w tym sensie, w jakim się tego obawiasz. Nie ma czatu, nie ma generatora tekstów, nie musisz niczego „promptować". System wykonuje konkretną pracę na prawdziwych danych — Twoje opinie, Twój profil, publiczne informacje o konkurencji — a każdy tekst czytasz i akceptujesz Ty. Tak, do pisania używamy modeli językowych. Ale to hydraulika, nie produkt.</div></div></div></div><div class="rv  in " style="--d: 0.05s;"><div class="faq "><button class="faq-q" aria-expanded="false">Nie znam się na pozycjonowaniu. Dam radę?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Tak, bo niczego nie konfigurujesz. Wpisujesz nazwę firmy, a potem tylko akceptujesz albo odrzucasz gotowe propozycje. Wszystko jest po polsku i po ludzku.</div></div></div></div><div class="rv  in " style="--d: 0.1s;"><div class="faq "><button class="faq-q" aria-expanded="false">Ile czasu mi to zajmie?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Około 15 minut tygodniowo: przejrzeć propozycje, kliknąć „Akceptuję", przeczytać podsumowanie.</div></div></div></div><div class="rv  in " style="--d: 0.15000000000000002s;"><div class="faq "><button class="faq-q" aria-expanded="false">Skąd wiecie, na co narzekają klienci mojej konkurencji?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Z publicznie dostępnych opinii w internecie. Czytamy je hurtowo i wyciągamy powtarzające się wątki. Przy każdym wniosku pokazujemy źródło — możesz sprawdzić każdy cytat.</div></div></div></div><div class="rv  in " style="--d: 0.2s;"><div class="faq "><button class="faq-q" aria-expanded="false">Czy publikujecie coś bez mojej wiedzy?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Nie. Domyślnie nic nie wychodzi bez Twojego kliknięcia. Jeśli kiedyś dodamy tryb automatyczny, będzie wyłącznie na Twoje wyraźne życzenie.</div></div></div></div><div class="rv  in " style="--d: 0.25s;"><div class="faq "><button class="faq-q" aria-expanded="false">Czy to zastąpi agencję?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Jeśli agencja prowadzi Ci reklamy, stronę i strategię — nie, i nie udajemy, że tak. Zastępujemy systematyczną, żmudną pracę przy wizytówce, opiniach i obserwowaniu konkurencji. Wielu firmom to wystarcza.</div></div></div></div><div class="rv  in " style="--d: 0.3s;"><div class="faq "><button class="faq-q" aria-expanded="false">Co z moimi danymi i RODO?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Dane trzymamy na serwerach w Unii Europejskiej. Zbieramy tylko to, co potrzebne do działania usługi. W każdej chwili możesz poprosić o wgląd lub usunięcie. Szczegóły w polityce prywatności.</div></div></div></div><div class="rv  in " style="--d: 0.3s;"><div class="faq "><button class="faq-q" aria-expanded="false">Kiedy start i co dostaję za zapis?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Planowany start: jesień 2026. Zapisani dostają: wcześniejszy dostęp, 3 miesiące za pół ceny (pierwsze 100 firm) i wpływ na kolejność funkcji. Piszemy rzadko: o postępach i starcie. Żadnego spamu, wypisujesz się jednym kliknięciem.</div></div></div></div><div class="rv  in " style="--d: 0.3s;"><div class="faq "><button class="faq-q" aria-expanded="false">Czy działa dla mojej branży?<span class="plus">+</span></button><div class="faq-a"><div class="faq-a-in">Budujemy dla firm lokalnych: beauty, gastro, moto, zdrowie, usługi domowe i podobne. Jeśli masz wątpliwości — zapisz się i odpowiedz na pytanie o branżę, wprost powiemy, czy to dla Ciebie.</div></div></div></div></div></div></section><section class="sec sec-dark final" id="final" data-screen-label="CTA końcowe"><div class="wrap"><span class="rv  in label" style="justify-content: center; --d: 0s;">Ostatni krok</span><h2 class="rv  in display" style="--d: 0.1s;">Wyprzedź konkurencję, <em>zanim ona wyprzedzi Ciebie.</em></h2><p class="rv  in lead" style="max-width: 52ch; --d: 0.2s;">Zostaw e-mail — odezwiemy się, gdy będzie co pokazać. Pierwsze 100 firm zaczyna za pół ceny.</p><div class="rv  in " style="display: flex; justify-content: center; --d: 0.3s;"><form class="signup" id="final-form" novalidate action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="Nowy zapis na listę BestLocal (footer_cta)"><input type="hidden" name="from_name" value="BestLocal — lista oczekujących"><input type="hidden" name="source" value="footer_cta"><div class="signup-row"><input type="email" id="final-email" name="email" aria-label="Twój adres e-mail" placeholder="Twój adres e-mail" autocomplete="email" required><span class="mag"><button type="submit" class="btn btn-accent">Chcę wcześniejszy dostęp <span class="arr">→</span></button></span></div><input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true"><p class="err" role="alert" hidden></p><details class="signup-extra"><summary>Branża i miasto — opcjonalnie, pomożesz nam ustawić kolejność branż</summary><div class="signup-extra-fields"><select name="industry" aria-label="Branża"><option value="" disabled selected>Branża</option><option>Fryzjer / barber</option><option>Beauty</option><option>Gastronomia</option><option>Moto</option><option>Zdrowie</option><option>Usługi domowe</option><option>Inna</option></select><input type="text" name="city" aria-label="Miasto" placeholder="Miasto"></div></details><label class="consent"><input type="checkbox" name="consent"><span>Zapisując się, zgadzam się na otrzymywanie informacji o produkcie BestLocal na podany e-mail. Administratorem danych jest <span class="ph">{PODMIOT}</span>. Mogę wypisać się w każdej chwili. <a href="/polityka-prywatnosci.html">Polityka prywatności</a></span></label><p class="micro">Start <strong>jesienią 2026</strong> · Pierwsze 100 firm: <strong>3 miesiące za pół ceny</strong> · Zero spamu — napiszemy o starcie i wynikach budowy.</p></form></div></div></section></main><footer class="footer"><div class="wrap footer-in"><a class="logo" href="#top" style="font-size: 17px; color: var(--bone);"><span class="logo-dot"></span>BestLocal</a><nav class="flinks" aria-label="Stopka"><a href="#">Polityka prywatności</a><a href="#">Regulamin listy oczekujących</a><a href="mailto:kontakt@localexpert.pl">kontakt@{domena}.pl</a><a href="#stopka">LinkedIn ↗</a></nav><span class="admin">Administrator danych: {PODMIOT} · © 2026 BestLocal. Bez ciasteczek reklamowych — dlatego nie męczy Cię żaden baner.</span></div></footer></div>
 <script src="/js/landing.js" defer></script>
-
 </body>
 </html>

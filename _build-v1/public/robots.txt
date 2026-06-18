@@ -1,0 +1,6 @@
+# BestLocal — robots.txt
+User-agent: *
+Allow: /
+Disallow: /dziekujemy.html
+
+Sitemap: https://bestlocal.pl/sitemap.xml

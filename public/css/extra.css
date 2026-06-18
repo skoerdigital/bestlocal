@@ -1,0 +1,103 @@
+/* ============================================================
+   BestLocal v2 — production overrides (loaded last)
+   ============================================================ */
+
+/* ---- accessibility: WCAG AA 4.5:1. Strategy: the bright accent #2E9E58
+   already passes as text on the DARK (pine) sections, so keep it there. Only
+   the LIGHT-background usages need help — darken muted ink, darken accent-
+   coloured backgrounds (so light text on them passes), and darken accent text
+   that sits on pale tints. ---- */
+:root {
+  --ink-soft: rgba(24, 42, 30, 0.74);
+  --ink-faint: rgba(24, 42, 30, 0.68);
+  --bone-soft: rgba(246, 242, 232, 0.84);
+  /* darken the green so accent text + accent-bg-with-light-text both pass on
+     light backgrounds (the vast majority of usages) */
+  --accent: #176E3B;
+  --ok: #176E3B;
+  --accent-soft: rgba(23, 110, 59, 0.12);
+}
+.footer .admin { opacity: 1; }
+
+/* the few accent spots on DARK (pine) backgrounds need a LIGHT green instead */
+.sec-dark .display em,
+.insight-result .reply-tag { color: #8FD9AC; }
+.cs-soon { border-color: rgba(23, 110, 59, 0.45); }
+/* these two hardcode #1E7A42 on pale tints — darken for AA */
+.cs-soon, .pricing-offer { color: #0F5C2E; }
+
+/* copper "spam" labels keep a darker copper on their pale-copper tints */
+.flag-chip, .listing-name mark { color: #8F2F14; }
+.flag-chip.ok-chip { color: var(--ok); }
+
+/* disclosure summary on dark sections (final CTA) must be light, not ink */
+.sec-dark .signup-extra summary,
+.final .signup-extra summary { color: var(--bone-soft); }
+
+/* ---- visible-first reveals: content is painted by default; the hidden
+   entrance state only applies after landing.js opts in via html.anim.
+   Guarantees content (and LCP) even if JS fails or is blocked. ---- */
+html:not(.anim) .rv { opacity: 1 !important; transform: none !important; filter: none !important; }
+/* keep headline words painted immediately (protects LCP, avoids flash) */
+.w { opacity: 1 !important; transform: none !important; animation: none !important; }
+
+/* ---- consistent vertical rhythm. The prototype mixed full-padding sections
+   with padding-top:0 ones, producing alternating 280px / 140px gaps. Normalise
+   every section to one tighter, uniform padding-block. ---- */
+.sec { padding-block: clamp(64px, 7vw, 100px); }
+.sec[style*="padding-top"] { padding-top: clamp(64px, 7vw, 100px) !important; }
+
+/* ---- FAQ: open via class only (no per-element JS measuring) ---- */
+.faq.open .faq-a { max-height: 1000px; }
+
+/* ---- RWD: fix flex/grid items expanding to content min-width (overflow).
+   .hero is a flex container; its .wrap (and the hero grid columns) must be
+   allowed to shrink below their content's intrinsic width on small screens. ---- */
+.hero .wrap { min-width: 0; width: 100%; }
+/* top-align the hero columns so the demo card can't shift vertically when the
+   serif display font swaps and reflows the copy column (kills hero CLS). */
+.hero-grid { align-items: start; }
+.hero-grid, .hero-grid > * { min-width: 0; }
+.hero-visual, .hero-visual .demo { max-width: 100%; min-width: 0; }
+.compare-scroll { width: 100%; max-width: 100%; }
+/* belt-and-suspenders: never allow a stray element to cause horizontal scroll */
+html { overflow-x: clip; }
+
+/* ---- honeypot fields (spam trap) ---- */
+.hp-field { position: absolute !important; left: -9999px !important; top: auto; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+/* ---- mobile: stack the email + button so neither gets squished ---- */
+@media (max-width: 560px) {
+  .signup-row { flex-direction: column; align-items: stretch; }
+  .signup-row .mag { width: 100%; display: block; }
+  .signup-row .mag .btn { width: 100%; justify-content: center; }
+}
+
+/* ---- form error ---- */
+.err { color: #b3341c; font-size: 13.5px; margin-top: 4px; }
+.err[hidden] { display: none; }
+.sec-dark .err, .final .err { color: #ffb4a2; }
+.mag { display: inline-block; }
+
+/* ---- founder photo placeholder (image-slot was a dev tool) ---- */
+.founder-photo-ph {
+  width: 180px; height: 180px; flex: none;
+  border-radius: 50%;
+  background: var(--sage);
+  color: rgba(22, 48, 31, 0.55);
+  display: grid; place-items: center;
+}
+.founder-photo-ph svg { width: 64px; height: 64px; }
+
+/* ---- accessibility helpers ---- */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.skip-link {
+  position: fixed; top: 10px; left: 50%; transform: translate(-50%, -200%);
+  z-index: 200; background: var(--pine); color: var(--bone);
+  padding: 12px 20px; border-radius: 100px; font-weight: 700; font-size: 14px;
+  text-decoration: none; font-family: var(--font-body);
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1);
+}
+.skip-link:focus { transform: translate(-50%, 0); outline: 2px solid var(--accent); outline-offset: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.ph { color: inherit; }

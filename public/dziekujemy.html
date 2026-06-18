@@ -1,277 +1,173 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-type="serif">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex, nofollow" />
 <title>Dziękujemy — sprawdź skrzynkę · BestLocal</title>
-<meta name="theme-color" content="#0f2e22" />
+<meta name="theme-color" content="#16301F" />
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="stylesheet" href="/fonts/fonts.css" />
-<link rel="stylesheet" href="/css/base.css" />
-<link rel="stylesheet" href="/css/sections.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/v3.css" />
+<link rel="stylesheet" href="/css/extra.css" />
 <style>
-  .ty-shell {
-    min-height: 100svh;
-    display: grid;
-    align-content: start;
-    justify-items: center;
-    padding: 110px 16px 60px;
+  .ty-page { min-height: 100svh; display: grid; place-items: center; padding: 60px 24px; }
+  .ty-card { max-width: 640px; width: 100%; }
+  .ty-check {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--ok); color: #fff;
+    display: grid; place-items: center; margin-bottom: 28px;
+    animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .ty-card {
-    width: min(680px, 100%);
-    display: grid;
-    gap: 18px;
-    justify-items: center;
-    text-align: center;
-  }
-  .ty-mark {
-    width: 76px; height: 76px;
-    border-radius: 50%;
-    background: var(--forest-900);
-    display: grid; place-items: center;
-  }
-  html.anim-on .ty-mark { animation: pop-in 0.8s var(--ease-spring) both; }
   @keyframes pop-in { from { transform: scale(0.4); opacity: 0; } }
-  .ty-mark svg path { stroke-dasharray: 30; stroke-dashoffset: 0; }
-  html.anim-on .ty-mark svg path {
-    stroke-dashoffset: 30;
-    animation: draw 0.7s var(--ease-out) 0.45s forwards;
-  }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
-  .ty-title {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(38px, 5.5vw, 58px);
-    line-height: 1.05;
-    letter-spacing: var(--display-tracking);
-  }
-  .ty-title em { font-style: italic; color: var(--forest-600); }
+  .ty-h1 { font-size: clamp(34px, 5vw, 52px); margin-bottom: 16px; }
   .ty-inbox {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    background: #fff;
-    border: 1px solid var(--paper-line);
-    border-radius: 14px;
-    padding: 16px 22px;
-    font-size: 15px;
-    color: var(--ink-soft);
-    text-align: left;
-    box-shadow: 0 20px 50px -30px rgba(11,36,26,0.4);
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--paper); border: 1.5px solid var(--line);
+    border-radius: var(--radius); padding: 20px 24px; margin: 28px 0 44px;
+    font-size: 15px; line-height: 1.55; color: var(--ink-soft);
   }
-  .ty-inbox b { color: var(--ink); }
-
-  .survey {
-    width: min(680px, 100%);
-    margin-top: 38px;
-    background: var(--forest-900);
-    color: var(--on-dark);
-    border-radius: var(--r-lg);
-    padding: clamp(28px, 5vw, 48px);
-    display: grid;
-    gap: 28px;
+  .ty-inbox strong { color: var(--ink); }
+  .survey-q { margin-bottom: 34px; }
+  .survey-label {
+    font-family: var(--font-label); font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px;
   }
-  .survey h2 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: clamp(26px, 3.4vw, 34px);
-    line-height: 1.1;
-    text-align: center;
+  .survey-title { font-weight: 800; font-size: 19px; margin-bottom: 16px; font-family: var(--font-display); letter-spacing: -0.015em; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip {
+    border: 1.5px solid var(--line); background: var(--paper);
+    border-radius: 100px; padding: 11px 20px;
+    font-size: 14.5px; font-weight: 600; color: var(--ink-soft); cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.34, 1.3, 0.64, 1);
   }
-  .survey h2 em { font-style: italic; color: var(--accent); }
-  .sv-q { display: grid; gap: 13px; }
-  .sv-q .sv-label { font-size: 14.5px; font-weight: 600; color: var(--on-dark-soft); }
-  .sv-opts { display: flex; flex-wrap: wrap; gap: 9px; }
-  .sv-opt {
-    border: 1px solid var(--dark-line);
-    background: rgba(255,255,255,0.05);
-    color: var(--on-dark-soft);
-    border-radius: 999px;
-    padding: 11px 18px;
-    font-size: 14px;
-    transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.3s var(--ease-spring);
+  .chip:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-2px); }
+  .chip.on { background: var(--ink); border-color: var(--ink); color: var(--bg); transform: scale(1.04); }
+  .price-extra { margin-top: 14px; }
+  .price-extra[hidden] { display: none; }
+  .price-extra input {
+    font-family: var(--font-body); font-size: 14.5px;
+    padding: 11px 18px; border: 1.5px solid var(--line);
+    border-radius: 100px; background: var(--paper); color: var(--ink);
+    outline: none; width: 220px;
   }
-  .sv-opt:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-  .sv-opt.sel {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--accent-ink);
-    font-weight: 600;
+  .price-extra input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .survey-done {
+    background: var(--pine); color: var(--bone);
+    border-radius: var(--radius); padding: 28px 30px;
+    animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 16px; line-height: 1.6;
   }
-  .sv-price-extra { display: none; }
-  .sv-price-extra.show { display: flex; gap: 10px; align-items: center; }
-  .sv-price-extra input {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid var(--dark-line);
-    color: var(--on-dark);
-    border-radius: 999px;
-    padding: 10px 18px;
-    font-size: 14px;
-    outline: 0;
-    width: 170px;
-  }
-  .sv-price-extra input:focus { border-color: var(--accent); }
-  .sv-send { justify-self: center; }
-  .sv-done {
-    display: none;
-    text-align: center;
-    gap: 12px;
-    justify-items: center;
-  }
-  .sv-done.show { display: grid; }
-  .sv-done .big {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 27px;
-    color: var(--accent);
-  }
-  .ty-back { margin-top: 34px; font-size: 14.5px; }
+  .survey-done[hidden] { display: none; }
+  .survey-done strong { color: var(--accent); }
+  .ty-back { margin-top: 36px; font-size: 14px; }
+  .ty-back a { color: var(--ink-soft); }
 </style>
 </head>
 <body>
-
-<div class="nav-wrap">
-  <nav class="nav scrolled" aria-label="Główna nawigacja">
-    <a class="nav-logo" href="/" aria-label="BestLocal — wróć na stronę główną">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <path d="M13 1.5C8.3 1.5 4.5 5.3 4.5 10c0 6.4 8.5 14.5 8.5 14.5S21.5 16.4 21.5 10c0-4.7-3.8-8.5-8.5-8.5Z" fill="#0f2e22"></path>
-        <circle cx="13" cy="10" r="3.4" fill="var(--accent)"></circle>
-      </svg>
-      <span>BestLocal</span>
-    </a>
-    <a class="btn btn-dark" href="/">← Wróć na stronę</a>
-  </nav>
-</div>
-
-<main class="ty-shell">
+<main class="ty-page">
   <div class="ty-card">
-    <div class="ty-mark">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M4.5 12.5l5 5 10-11" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
+    <div class="ty-check">
+      <svg width="30" height="30" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.5 9.5l3.5 3.5 7.5-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </div>
-    <h1 class="ty-title">Jesteś <em>na liście</em></h1>
-    <p class="lead" style="text-align:center" id="ty-sub">Dziękujemy za zapis. Został jeden krok.</p>
+    <h1 class="display ty-h1">Jesteś na liście. Dziękujemy.</h1>
+    <p class="lead" id="ty-sub">Jeszcze jeden krok — i dwie szybkie odpowiedzi, jeśli masz 20 sekund.</p>
+
     <div class="ty-inbox">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3" stroke="var(--forest-600)" stroke-width="1.6"/><path d="M3.5 7l8.5 6 8.5-6" stroke="var(--forest-600)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span><b>Sprawdź skrzynkę</b> i kliknij link potwierdzający — bez tego nie możemy do Ciebie pisać. Jeśli nic nie przyszło, zajrzyj do spamu.</span>
+      <span style="font-size:22px" aria-hidden="true">📬</span>
+      <span><strong>Sprawdź skrzynkę i kliknij potwierdzenie.</strong> Bez tego nie możemy do Ciebie pisać — tak działa uczciwy zapis. Jeśli nic nie ma, zajrzyj do spamu.</span>
     </div>
+
+    <div id="survey">
+      <div class="survey-q">
+        <span class="survey-label">Pytanie 1 / 2 · opcjonalne</span>
+        <div class="survey-title">Co chcesz dostać w pierwszej kolejności?</div>
+        <div class="chips" data-q="priority">
+          <button class="chip" type="button">Gotowe odpowiedzi na opinie</button>
+          <button class="chip" type="button">Więcej opinii od klientów</button>
+          <button class="chip" type="button">Wiedza o konkurencji (skargi / ceny / ruch)</button>
+          <button class="chip" type="button">Pilnowanie nieuczciwych wizytówek</button>
+          <button class="chip" type="button">Sprawdzanie poleceń w ChatGPT</button>
+        </div>
+      </div>
+      <div class="survey-q">
+        <span class="survey-label">Pytanie 2 / 2 · opcjonalne</span>
+        <div class="survey-title">99 zł miesięcznie za plan Start to:</div>
+        <div class="chips" data-q="price">
+          <button class="chip" type="button">Tanio</button>
+          <button class="chip" type="button">W sam raz</button>
+          <button class="chip" type="button">Za drogo</button>
+        </div>
+        <div class="price-extra" id="price-extra" hidden>
+          <input type="text" inputmode="numeric" placeholder="Ile byś zapłacił/a? (zł/mc)" aria-label="Ile byś zapłacił miesięcznie" />
+        </div>
+      </div>
+    </div>
+
+    <div class="survey-done" id="survey-done" hidden>
+      <strong>Dziękujemy — to naprawdę pomaga.</strong> Twoje odpowiedzi ustawiają kolejność tego, co budujemy. Odezwiemy się, gdy będzie co pokazać. Do usłyszenia!
+    </div>
+
+    <p class="ty-back"><a href="/">← Wróć na stronę główną</a></p>
   </div>
-
-  <section class="survey" aria-label="Mikroankieta">
-    <div id="sv-form" style="display:grid;gap:28px">
-      <h2>2 pytania. <em>30 sekund.</em> Realny wpływ na produkt.</h2>
-      <div class="sv-q">
-        <span class="sv-label">1 · Co chcesz dostać w pierwszej kolejności?</span>
-        <div class="sv-opts" data-q="priority">
-          <button class="sv-opt" type="button">gotowe odpowiedzi na opinie</button>
-          <button class="sv-opt" type="button">więcej opinii od klientów</button>
-          <button class="sv-opt" type="button">wiedza o konkurencji (skargi / ceny / ruch)</button>
-          <button class="sv-opt" type="button">pilnowanie nieuczciwych wizytówek</button>
-          <button class="sv-opt" type="button">sprawdzanie poleceń w ChatGPT</button>
-        </div>
-      </div>
-      <div class="sv-q">
-        <span class="sv-label">2 · 99 zł miesięcznie za plan Start to:</span>
-        <div class="sv-opts" data-q="price">
-          <button class="sv-opt" type="button">tanio</button>
-          <button class="sv-opt" type="button">w sam raz</button>
-          <button class="sv-opt" type="button">za drogo</button>
-        </div>
-        <div class="sv-price-extra" id="price-extra">
-          <input type="text" inputmode="numeric" placeholder="ile byś zapłacił? (zł/mc)" aria-label="Ile byś zapłacił miesięcznie" />
-          <span style="font-size:12.5px;color:var(--on-dark-faint)">opcjonalnie</span>
-        </div>
-      </div>
-      <button class="btn btn-accent sv-send" id="sv-send" type="button" disabled style="opacity:0.5">Wyślij odpowiedzi <span class="arr" aria-hidden="true">→</span></button>
-    </div>
-    <div class="sv-done" id="sv-done">
-      <span class="big">Dziękujemy!</span>
-      <p style="color:var(--on-dark-soft);max-width:42ch;text-wrap:pretty">Twoje odpowiedzi właśnie ustawiają kolejność tego, co budujemy. Do usłyszenia — napiszemy, kiedy będzie na czym pracować.</p>
-    </div>
-  </section>
-
-  <a class="u-link ty-back" href="/">← Wróć na stronę główną</a>
 </main>
 
 <script>
 (function () {
   "use strict";
-  /* enable entrance animation only if the timeline actually advances */
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduced) {
-    var root = document.documentElement;
-    var p = document.createElement("div");
-    p.style.cssText = "position:fixed;left:-99px;top:0;width:1px;height:1px;opacity:0;pointer-events:none;transition:opacity .05s linear";
-    document.body.appendChild(p);
-    void p.offsetWidth; p.style.opacity = "1";
-    setTimeout(function () {
-      var ok = (parseFloat(getComputedStyle(p).opacity) || 0) >= 0.5;
-      p.remove();
-      if (ok) root.classList.add("anim-on");
-    }, 200);
-  }
-})();
-</script>
-<script>
-(function () {
-  "use strict";
-  /* personalize subline from signup record */
+  // personalize subline from signup record
   try {
     var rec = JSON.parse(localStorage.getItem("bestlocal_signup") || "null");
     if (rec && rec.email) {
       document.getElementById("ty-sub").innerHTML =
-        "Wysłaliśmy potwierdzenie na <strong>" + rec.email.replace(/[<>&]/g, "") + "</strong>.";
+        "Wysłaliśmy potwierdzenie na <strong>" + rec.email.replace(/[<>&]/g, "") + "</strong>. Jeszcze jeden krok poniżej.";
     }
   } catch (e) {}
 
   var answers = { priority: null, price: null, price_own: "" };
-  var sendBtn = document.getElementById("sv-send");
   var priceExtra = document.getElementById("price-extra");
 
-  function refresh() {
-    var ready = answers.priority && answers.price;
-    sendBtn.disabled = !ready;
-    sendBtn.style.opacity = ready ? "1" : "0.5";
+  function maybeFinish() {
+    if (answers.priority !== null && answers.price !== null) {
+      answers.price_own = (priceExtra.querySelector("input").value || "").trim();
+      try {
+        var rec = JSON.parse(localStorage.getItem("bestlocal_signup") || "{}");
+        rec.survey_priority = answers.priority;
+        rec.survey_price = answers.price;
+        rec.survey_price_own = answers.price_own;
+        localStorage.setItem("bestlocal_signup", JSON.stringify(rec));
+      } catch (e) {}
+      console.log("[analytics] survey_answered", answers);
+      setTimeout(function () {
+        document.getElementById("survey").hidden = true;
+        document.getElementById("survey-done").hidden = false;
+      }, 350);
+    }
   }
 
-  document.querySelectorAll(".sv-opts").forEach(function (group) {
+  document.querySelectorAll(".chips").forEach(function (group) {
     var q = group.getAttribute("data-q");
-    group.querySelectorAll(".sv-opt").forEach(function (btn) {
+    group.querySelectorAll(".chip").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        group.querySelectorAll(".sv-opt").forEach(function (b) { b.classList.remove("sel"); });
-        btn.classList.add("sel");
+        group.querySelectorAll(".chip").forEach(function (b) { b.classList.remove("on"); });
+        btn.classList.add("on");
         answers[q] = btn.textContent.trim();
-        if (q === "price") priceExtra.classList.toggle("show", answers.price === "za drogo");
-        refresh();
+        if (q === "price") priceExtra.hidden = btn.textContent.trim() !== "Za drogo";
+        maybeFinish();
       });
     });
   });
 
-  sendBtn.addEventListener("click", function () {
-    answers.price_own = (priceExtra.querySelector("input").value || "").trim();
-    try {
-      var rec = JSON.parse(localStorage.getItem("bestlocal_signup") || "{}");
-      rec.survey_priority = answers.priority;
-      rec.survey_price = answers.price;
-      rec.survey_price_own = answers.price_own;
-      localStorage.setItem("bestlocal_signup", JSON.stringify(rec));
-    } catch (e) {}
-    console.log("[analytics] survey_answered", answers);
-    document.getElementById("sv-form").style.display = "none";
-    document.getElementById("sv-done").classList.add("show");
-  });
-
-  /* restore previous answers state */
+  // already answered? show done state
   try {
     var prev = JSON.parse(localStorage.getItem("bestlocal_signup") || "null");
     if (prev && prev.survey_priority) {
-      document.getElementById("sv-form").style.display = "none";
-      document.getElementById("sv-done").classList.add("show");
+      document.getElementById("survey").hidden = true;
+      document.getElementById("survey-done").hidden = false;
     }
   } catch (e) {}
 })();

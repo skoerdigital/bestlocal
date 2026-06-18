@@ -1,44 +1,46 @@
-// Build-time HTML optimizer for the landing page.
-// Source of truth: public/index.template.html + css/*.css + js/landing.js
-// Output: public/index.html with (1) all CSS inlined (no render-blocking
-// stylesheet requests) and (2) a content-hashed landing.<hash>.js for
-// 1-year immutable caching. Run: npm run build:html
+// Build-time HTML optimizer (v2).
+// Source: index.template.html + public/css/*.css + public/js/landing.js
+// Output: public/index.html with all CSS inlined (no render-blocking
+// stylesheets) and a content-hashed landing.<hash>.js. Run: npm run build:html
 import { readFile, writeFile, readdir, unlink, copyFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import path from "node:path";
 
 const PUB = "public";
 
-// --- 1. fingerprint landing.js ---
+// --- fingerprint landing.js ---
 const jsRaw = await readFile(`${PUB}/js/landing.js`);
 const hash = createHash("sha256").update(jsRaw).digest("hex").slice(0, 8);
 const hashedJs = `landing.${hash}.js`;
-// clean old hashed copies
 for (const f of await readdir(`${PUB}/js`)) {
   if (/^landing\.[0-9a-f]{8}\.js$/.test(f) && f !== hashedJs) await unlink(`${PUB}/js/${f}`);
 }
 await copyFile(`${PUB}/js/landing.js`, `${PUB}/js/${hashedJs}`);
 
-// --- 2. assemble inline CSS (fonts first, with absolute /fonts/ paths) ---
-let fontsCss = await readFile(`${PUB}/fonts/fonts.css`, "utf8");
-fontsCss = fontsCss.replace(/url\(\.\//g, "url(/fonts/");
-const baseCss = await readFile(`${PUB}/css/base.css`, "utf8");
-const sectionsCss = await readFile(`${PUB}/css/sections.css`, "utf8");
-const inlineCss = `<style>\n${fontsCss}\n${baseCss}\n${sectionsCss}\n</style>`;
+// --- assemble inline CSS (fonts first, absolute /fonts/ paths) ---
+let fontsCss = (await readFile(`${PUB}/fonts/fonts.css`, "utf8")).replace(/url\(\.\//g, "url(/fonts/");
+const styles = await readFile(`${PUB}/css/styles.css`, "utf8");
+const v3 = await readFile(`${PUB}/css/v3.css`, "utf8");
+const extra = await readFile(`${PUB}/css/extra.css`, "utf8");
+// conservative CSS minifier: strip comments, collapse whitespace, trim around delimiters
+function minifyCss(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, "")      // comments
+    .replace(/\s+/g, " ")                   // collapse whitespace (keeps single spaces in calc())
+    .replace(/\s*([{}:;,>])\s*/g, "$1")     // trim around delimiters
+    .replace(/;}/g, "}")                     // drop last semicolon in a block
+    .trim();
+}
+const combinedCss = minifyCss(`${fontsCss}\n${styles}\n${v3}\n${extra}`);
+const inlineCss = `<style>${combinedCss}</style>`;
 
-// --- 3. transform template (lives at project root, not web-served) ---
+// --- transform template ---
 let html = await readFile(`index.template.html`, "utf8");
-
-// drop the three render-blocking stylesheet links, inject one <style> in their place
 html = html
-  .replace(/\n?[ \t]*<link rel="stylesheet" href="\/css\/base\.css" \/>/, "")
-  .replace(/\n?[ \t]*<link rel="stylesheet" href="\/css\/sections\.css" \/>/, "")
-  .replace(/[ \t]*<link rel="stylesheet" href="\/fonts\/fonts\.css" \/>/, inlineCss);
-
-// fingerprint the script reference
-html = html.replace(/\/js\/landing\.js/, `/js/${hashedJs}`);
+  .replace(/\n?[ \t]*<link rel="stylesheet" href="\/css\/styles\.css" \/>/, "")
+  .replace(/\n?[ \t]*<link rel="stylesheet" href="\/css\/v3\.css" \/>/, "")
+  .replace(/\n?[ \t]*<link rel="stylesheet" href="\/css\/extra\.css" \/>/, "")
+  .replace(/[ \t]*<link rel="stylesheet" href="\/fonts\/fonts\.css" \/>/, inlineCss)
+  .replace(/\/js\/landing\.js/, `/js/${hashedJs}`);
 
 await writeFile(`${PUB}/index.html`, html);
-
-const cssBytes = Buffer.byteLength(inlineCss);
-console.log(`✓ index.html built — inlined CSS (${(cssBytes / 1024).toFixed(1)} KB), JS → ${hashedJs}`);
+console.log(`✓ index.html built — inlined CSS (${(Buffer.byteLength(inlineCss) / 1024).toFixed(1)} KB), JS → ${hashedJs}`);

@@ -5,15 +5,18 @@
   "description": "BestLocal — landing page (statyczna, deploy na Railway)",
   "scripts": {
     "start": "node server.js",
-    "build:images": "node scripts/build-images.mjs",
+    "build:prerender": "node scripts/prerender-v2.mjs",
+    "build:template": "node scripts/build-template-v2.mjs",
     "build:icons": "node scripts/build-icons.mjs",
-    "build": "npm run build:images && npm run build:icons && npm run build:html",
-    "build:html": "node scripts/build-html.mjs"
+    "build:html": "node scripts/build-html.mjs",
+    "build": "npm run build:icons && npm run build:html",
+    "build:all": "npm run build:prerender && npm run build:template && npm run build:icons && npm run build:html"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "puppeteer-core": "^25.1.0",
     "sharp": "^0.33.5"
   }
 }

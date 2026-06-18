@@ -1,13 +1,13 @@
 {
   "name": "BestLocal — wizytówka Google zadbana za Ciebie",
   "short_name": "BestLocal",
-  "description": "Opinie, posty, pozycja w Mapach Google i wiedza o konkurencji — Ty tylko akceptujesz.",
+  "description": "Opinie, posty, pozycja w Mapach Google, wywiad konkurencyjny i widoczność w AI — Ty tylko akceptujesz.",
   "lang": "pl-PL",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#f7f4ec",
-  "theme_color": "#0f2e22",
+  "background_color": "#F6F2E8",
+  "theme_color": "#16301F",
   "icons": [
     { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
