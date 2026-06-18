@@ -23,7 +23,7 @@
   --ok: #2E9E58;
   --radius: 22px;
   --radius-sm: 14px;
-  --font-display: 'Source Serif 4', serif;
+  --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Manrope', sans-serif;
   --font-label: 'IBM Plex Mono', monospace;
   --display-weight: 550;
@@ -31,7 +31,7 @@
 }
 
 html[data-type="serif"] {
-  --font-display: 'Source Serif 4', serif;
+  --font-display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Manrope', sans-serif;
   --display-weight: 550;
   --display-tracking: -0.015em;

@@ -8,6 +8,44 @@ import { readFile, writeFile } from "node:fs/promises";
 const DOMAIN = "https://bestlocal.pl";
 let body = await readFile("scripts/.v3-root.html", "utf8");
 
+// ---- 0. product copy edits (applied BEFORE FAQ extraction so JSON-LD matches) ----
+// start date → "wkrótce" (zamiast "jesienią/jesień 2026")
+body = body.replace(/jesienią 2026/g, "wkrótce").replace(/jesień 2026/g, "wkrótce");
+
+// "Brzmi znajomo?" — mocniej o konkurencji (ranking, ceny, wady)
+body = body.replace(
+  `<div class="pain-list"><div class="pain lit"><span class="pain-n">/01</span><span>Masz 14 opinii. Konkurent z drugiej strony ulicy — 120.</span></div><div class="pain lit"><span class="pain-n">/02</span><span>Ktoś wystawił Ci 1 gwiazdkę i wisi bez odpowiedzi od trzech miesięcy.</span></div><div class="pain lit"><span class="pain-n">/03</span><span>Wpisujesz „fryzjer + swoja dzielnica" i nie ma Cię poza własną ulicą.</span></div><div class="pain lit"><span class="pain-n">/04</span><span>Płacisz komuś za „pozycjonowanie" i nie wiesz, co właściwie dostajesz.</span></div><div class="pain lit"><span class="pain-n">/05</span><span>Wiesz, że wizytówka jest ważna. Ale zawsze przegrywa z prowadzeniem firmy.</span></div></div>`,
+  `<div class="pain-list"><div class="pain lit"><span class="pain-n">/01</span><span>Masz 14 opinii. Konkurent z drugiej strony ulicy — 120. I nie wiesz, jak to nadrobił.</span></div><div class="pain lit"><span class="pain-n">/02</span><span>Konkurent ciągle wisi nad Tobą w Mapach — a Ty nie wiesz, co takiego robi lepiej.</span></div><div class="pain lit"><span class="pain-n">/03</span><span>Nie wiesz, ile naprawdę bierze konkurencja za to samo — gdzie jesteś tańszy, a gdzie droższy.</span></div><div class="pain lit"><span class="pain-n">/04</span><span>Jego klienci na coś narzekają w opiniach. To gotowa szansa dla Ciebie — ale kto ma czas to czytać.</span></div><div class="pain lit"><span class="pain-n">/05</span><span>Ktoś wystawił Ci 1 gwiazdkę i wisi bez odpowiedzi od trzech miesięcy.</span></div><div class="pain lit"><span class="pain-n">/06</span><span>Płacisz komuś za „pozycjonowanie" i nie wiesz, co właściwie dostajesz.</span></div></div>`
+);
+
+// Funkcja 05 — widoczność w AI: uniwersalnie (bez zapięcia na ChatGPT)
+body = body.replace(
+  `<span class="feature-n">05 / 05</span><h3>Widoczność w AI: czy ChatGPT poleca Ciebie, czy konkurencję?</h3><p class="body">Coraz więcej osób zamiast w Google szuka w ChatGPT i podobnych: „poleć dobrego barbera na Woli". <strong>Regularnie zadajemy te pytania za Ciebie i sprawdzamy, kto pada w odpowiedziach</strong> — Ty czy konkurencja — i jak ten udział zmienia się w czasie. Dostajesz listę konkretów, które zwiększają szansę, że AI wymieni właśnie Twoją firmę. Tu nie zgadujemy: pokazujemy zapytania i odpowiedzi. <strong>Pierwsi w Polsce robimy to dla firm lokalnych.</strong></p>`,
+  `<span class="feature-n">05 / 05</span><h3>Widoczność w AI: czy sztuczna inteligencja poleca Ciebie, czy konkurencję?</h3><p class="body">Klienci coraz częściej nie przewijają listy linków — pytają wprost: „poleć dobrego barbera na Woli". I dostają gotową odpowiedź od AI: w odpowiedziach Google (napędzanych przez Gemini), w asystentach i nowych wyszukiwarkach. <strong>Regularnie zadajemy te pytania za Ciebie i sprawdzamy, kogo AI wskazuje w odpowiedziach</strong> — Ciebie czy konkurencję — i jak ten udział zmienia się w czasie. Dostajesz listę konkretów, które zwiększają szansę, że AI wymieni właśnie Twoją firmę. Tu nie zgadujemy: pokazujemy zapytania i odpowiedzi. <strong>Pierwsi w Polsce robimy to dla firm lokalnych.</strong></p>`
+);
+
+// Pełna lista, poz. monitoringu AI — generyczny opis
+body = body.replace(
+  "Czy ChatGPT i nowe wyszukiwarki polecają Ciebie, czy konkurencję — co tydzień, z trendem.",
+  "Czy wyszukiwarki AI i asystenci polecają Ciebie, czy konkurencję — co tydzień, z trendem."
+);
+
+// Nagłówek sekcji porównania: bez slangu
+body = body.replace(">Bez ściemy</span>", ">Uczciwie</span>");
+
+// Plan Start — dodatkowy punkt: ceny konkurencji
+body = body.replace(
+  "<li>Raport o konkurencji na start</li></ul>",
+  "<li>Raport o konkurencji na start</li><li>Ceny konkurencji: gdzie jesteś tańszy, a gdzie droższy</li></ul>"
+);
+
+// Pełna lista — nowa funkcja bazowa "Ceny konkurencji na oku" po poz. 02, potem renumeracja
+const cap02 = `<div class="rv  in cap " style="--d: 0.05s;"><span class="cap-n">02</span><div class="cap-body"><span class="cap-name">Raport otwarcia: wywiad konkurencyjny</span><span class="cap-desc">Analiza opinii 5 najbliższych konkurentów: skargi, pochwały, luki w ofercie.</span></div><span class="cap-status cs-now">Od startu</span></div>`;
+const capPrice = `<div class="rv  in cap " style="--d: 0.075s;"><span class="cap-n">03</span><div class="cap-body"><span class="cap-name">Ceny konkurencji na oku</span><span class="cap-desc">Publiczne cenniki firm wokół Ciebie w jednym miejscu: gdzie jesteś tańszy, gdzie droższy i co się zmieniło.</span></div><span class="cap-status cs-now">Od startu</span></div>`;
+body = body.replace(cap02, cap02 + capPrice);
+let capN = 0;
+body = body.replace(/<span class="cap-n">\d+<\/span>/g, () => `<span class="cap-n">${String(++capN).padStart(2, "0")}</span>`);
+
 // ---- 1. extract FAQ pairs (before mutating) for JSON-LD ----
 const faqs = [];
 const faqRe = /<button class="faq-q"[^>]*>(.*?)<span class="plus">[\s\S]*?<div class="faq-a-in">([\s\S]*?)<\/div>/g;
@@ -54,7 +92,7 @@ function formMarkup(idPrefix, source) {
         `<input type="text" name="city" aria-label="Miasto" placeholder="Miasto">` +
       `</div></details>` +
     `<label class="consent"><input type="checkbox" name="consent"><span>Zapisując się, zgadzam się na otrzymywanie informacji o produkcie BestLocal na podany e-mail. Administratorem danych jest <span class="ph">{PODMIOT}</span>. Mogę wypisać się w każdej chwili. <a href="/polityka-prywatnosci.html">Polityka prywatności</a></span></label>` +
-    `<p class="micro">Start <strong>jesienią 2026</strong> · Pierwsze 100 firm: <strong>3 miesiące za pół ceny</strong> · Zero spamu — napiszemy o starcie i wynikach budowy.</p>` +
+    `<p class="micro">Start <strong>wkrótce</strong> · Pierwsze 100 firm: <strong>3 miesiące za pół ceny</strong> · Zero spamu — napiszemy o starcie i wynikach budowy.</p>` +
   `</form>`;
 }
 let formIdx = 0;
@@ -101,9 +139,9 @@ const head = `<!DOCTYPE html>
 
 <!-- =======================================================================
      PRZED PUBLIKACJĄ podmień w razie potrzeby:
-       • ${DOMAIN}            → Twoja docelowa domena (canonical, OG, JSON-LD)
-       • {PODMIOT}, {Imię i nazwisko}, {BLOK_ZALOZYCIELA} → dane firmy/założyciela
-       • 1c98fbc6-fa65-49b6-bacc-823763d4fef1 → klucz z https://web3forms.com (formularz zapisu)
+       • {PODMIOT} → administrator danych (firma/osoba) — w zgodzie formularza i stopce
+       • Klucz Web3Forms jest już ustawiony w formularzach. NIE zmieniaj sentinela
+         "YOUR_WEB3FORMS_ACCESS_KEY" w public/js/landing.js (to przełącznik trybu demo).
      ======================================================================= -->
 
 <title>Wizytówka Google zadbana za Ciebie — opinie, posty, Mapy | BestLocal</title>
@@ -135,10 +173,10 @@ const head = `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
-<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-normal-s3.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-ext-normal-s2.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-italic-s1.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/fonts/source-serif-4-latin-ext-italic-s0.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-normal-7.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-ext-normal-6.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-italic-5.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/fonts/schibsted-grotesk-latin-ext-italic-4.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="/fonts/manrope-latin-normal-7.woff2" crossorigin />
 
 <link rel="stylesheet" href="/fonts/fonts.css" />

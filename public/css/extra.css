@@ -95,6 +95,10 @@ html:not(.anim) .rv { opacity: 1 !important; transform: none !important; filter:
 /* ---- FAQ: open via class only (no per-element JS measuring) ---- */
 .faq.open .faq-a { max-height: 1000px; }
 
+/* ---- hero label: the long pill ("Wizytówka Google · opinie · konkurencja · AI")
+   was clipped on phones because base .label sets white-space:nowrap. Let it wrap. ---- */
+.hero .label { white-space: normal; max-width: 100%; }
+
 /* ---- RWD: fix flex/grid items expanding to content min-width (overflow).
    .hero is a flex container; its .wrap (and the hero grid columns) must be
    allowed to shrink below their content's intrinsic width on small screens. ---- */

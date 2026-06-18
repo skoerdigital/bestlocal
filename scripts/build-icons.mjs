@@ -55,7 +55,7 @@ const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" vi
   <text x="82" y="446" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#182A1Eb0">Opinie, posty, pozycja w Mapach, wywiad konkurencyjny i widoczność w AI.</text>
   <g transform="translate(82 520)">
     <rect x="0" y="-26" width="560" height="44" rx="22" fill="${PINE}"/>
-    <text x="24" y="3" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="${CREAM}">Wczesny dostęp · od 99 zł/mc · start jesienią 2026</text>
+    <text x="24" y="3" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="${CREAM}">Wczesny dostęp · od 99 zł/mc · start wkrótce</text>
   </g>
 </svg>`;
 await sharp(Buffer.from(og)).jpeg({ quality: 86, mozjpeg: true }).toFile(`${PUB}/assets/img/og-image.jpg`);
