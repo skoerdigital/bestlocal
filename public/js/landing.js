@@ -159,6 +159,9 @@
         .catch(function () { fail("Brak połączenia. Spróbuj ponownie za chwilę."); });
     });
   }
-  bindForm(document.getElementById("hero-form"), "hero");
-  bindForm(document.getElementById("final-form"), "footer_cta");
+  // Bind EVERY signup form on the page (robust: not tied to specific ids).
+  document.querySelectorAll("form.signup").forEach(function (form) {
+    var src = form.querySelector('input[name="source"]');
+    bindForm(form, src ? src.value : (form.id || "form"));
+  });
 })();

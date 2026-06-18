@@ -57,19 +57,20 @@ npm run build:all    # pełna regeneracja z prototypu Reactowego:
 
 | Co | Gdzie | Domyślnie |
 |----|-------|-----------|
-| **Klucz formularza** (Web3Forms) | `name="access_key"` w `index.template.html` (2×) → potem `npm run build:html` | `1c98fbc6-fa65-49b6-bacc-823763d4fef1` |
 | **Administrator danych** | `{PODMIOT}` w `index.template.html` (zgoda formularza + stopka) | placeholder |
 | **Treści prawne** | `public/polityka-prywatnosci.html`, `public/regulamin.html` | szkielet RODO |
 
 > Domena `bestlocal.pl` jest już ustawiona w całym serwisie (canonical, OG, JSON-LD, e-mail).
-> Sekcja założyciela została usunięta — nie ma już placeholderów `{Imię i nazwisko}` / `{BLOK_ZALOZYCIELA}`.
+> Klucz Web3Forms jest już wpięty w oba formularze — działają na żywo (wysyłają e-mail).
+> Sekcja założyciela usunięta — bez placeholderów `{Imię i nazwisko}` / `{BLOK_ZALOZYCIELA}`.
 
 ### Formularz zapisu (Web3Forms)
 
-1. Załóż darmowy klucz na <https://web3forms.com>.
-2. Wklej go w oba pola `access_key` w `index.template.html`, uruchom `npm run build:html`.
-3. Dopóki klucz to `1c98fbc6-fa65-49b6-bacc-823763d4fef1`, formularz działa w **trybie demo**
-   (bez wysyłki — od razu przekierowuje na `/dziekujemy.html`).
+- Klucz `access_key` jest ustawiony w obu formularzach (`hero-form`, `final-form`) — wysyłka działa.
+- Tryb demo (zapis bez wysyłki + redirect na `/dziekujemy.html`) włącza się tylko, gdy klucz to
+  sentinel `YOUR_WEB3FORMS_ACCESS_KEY`. **Nie podmieniaj tego sentinela w `public/js/landing.js`** —
+  to przełącznik demo/live; ustawienie go na prawdziwy klucz na stałe zablokuje wysyłkę w trybie demo.
+- Web3Forms (darmowy plan) przyjmuje zgłoszenia tylko z przeglądarki (client-side), nie z serwera.
 
 ---
 
@@ -82,7 +83,7 @@ public/                      # ← serwowany statyczny site
   polityka-prywatnosci.html, regulamin.html, 404.html
   css/{styles,v3,extra}.css  # źródła stylów (inline'owane do index.html)
   js/landing.js              # źródło; build tworzy landing.<hash>.js
-  fonts/                     # self-hosted woff2 (Source Serif 4 + Manrope + IBM Plex Mono)
+  fonts/                     # self-hosted woff2 (Schibsted Grotesk + Manrope + IBM Plex Mono)
   assets/icons/, assets/img/og-image.jpg, favicon.*, robots.txt, sitemap.xml, site.webmanifest
 
 index.template.html          # ŹRÓDŁO strony głównej (edytuj tu → build:html)
