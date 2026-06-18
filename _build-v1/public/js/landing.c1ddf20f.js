@@ -223,10 +223,10 @@
   /* ===================================================================
      SIGNUP FORMS → Web3Forms (https://web3forms.com)
      Wklej swój klucz w atrybut value pola name="access_key" w index.html.
-     Dopóki klucz to YOUR_WEB3FORMS_ACCESS_KEY, działa tryb demo
+     Dopóki klucz to 1c98fbc6-fa65-49b6-bacc-823763d4fef1, działa tryb demo
      (bez wysyłki sieciowej, od razu strona „dziękujemy”).
      =================================================================== */
-  var PLACEHOLDER_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  var PLACEHOLDER_KEY = "1c98fbc6-fa65-49b6-bacc-823763d4fef1";
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function bindForm(form, position) {

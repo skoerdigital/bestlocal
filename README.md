@@ -57,7 +57,7 @@ npm run build:all    # pełna regeneracja z prototypu Reactowego:
 
 | Co | Gdzie | Domyślnie |
 |----|-------|-----------|
-| **Klucz formularza** (Web3Forms) | `name="access_key"` w `index.template.html` (2×) → potem `npm run build:html` | `YOUR_WEB3FORMS_ACCESS_KEY` |
+| **Klucz formularza** (Web3Forms) | `name="access_key"` w `index.template.html` (2×) → potem `npm run build:html` | `1c98fbc6-fa65-49b6-bacc-823763d4fef1` |
 | **Administrator danych** | `{PODMIOT}` w `index.template.html` (zgoda formularza + stopka) | placeholder |
 | **Treści prawne** | `public/polityka-prywatnosci.html`, `public/regulamin.html` | szkielet RODO |
 
@@ -68,7 +68,7 @@ npm run build:all    # pełna regeneracja z prototypu Reactowego:
 
 1. Załóż darmowy klucz na <https://web3forms.com>.
 2. Wklej go w oba pola `access_key` w `index.template.html`, uruchom `npm run build:html`.
-3. Dopóki klucz to `YOUR_WEB3FORMS_ACCESS_KEY`, formularz działa w **trybie demo**
+3. Dopóki klucz to `1c98fbc6-fa65-49b6-bacc-823763d4fef1`, formularz działa w **trybie demo**
    (bez wysyłki — od razu przekierowuje na `/dziekujemy.html`).
 
 ---

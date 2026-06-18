@@ -36,7 +36,7 @@ body = body.replace(/class="faq open"/g, 'class="faq"')
 const industries = ["Fryzjer / barber","Beauty","Gastronomia","Moto","Zdrowie","Usługi domowe","Inna"];
 function formMarkup(idPrefix, source) {
   return `<form class="signup" id="${idPrefix}-form" novalidate action="https://api.web3forms.com/submit" method="POST">` +
-    `<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">` +
+    `<input type="hidden" name="access_key" value="1c98fbc6-fa65-49b6-bacc-823763d4fef1">` +
     `<input type="hidden" name="subject" value="Nowy zapis na listę BestLocal (${source})">` +
     `<input type="hidden" name="from_name" value="BestLocal — lista oczekujących">` +
     `<input type="hidden" name="source" value="${source}">` +
@@ -103,7 +103,7 @@ const head = `<!DOCTYPE html>
      PRZED PUBLIKACJĄ podmień w razie potrzeby:
        • ${DOMAIN}            → Twoja docelowa domena (canonical, OG, JSON-LD)
        • {PODMIOT}, {Imię i nazwisko}, {BLOK_ZALOZYCIELA} → dane firmy/założyciela
-       • YOUR_WEB3FORMS_ACCESS_KEY → klucz z https://web3forms.com (formularz zapisu)
+       • 1c98fbc6-fa65-49b6-bacc-823763d4fef1 → klucz z https://web3forms.com (formularz zapisu)
      ======================================================================= -->
 
 <title>Wizytówka Google zadbana za Ciebie — opinie, posty, Mapy | BestLocal</title>

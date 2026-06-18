@@ -105,10 +105,10 @@
 
   /* ===================================================================
      SIGNUP FORMS → Web3Forms. Wklej klucz w index.template.html
-     (name="access_key"). Dopóki klucz to YOUR_WEB3FORMS_ACCESS_KEY,
+     (name="access_key"). Dopóki klucz to 1c98fbc6-fa65-49b6-bacc-823763d4fef1,
      działa tryb demo (bez wysyłki, od razu strona „dziękujemy").
      =================================================================== */
-  var PLACEHOLDER_KEY = "YOUR_WEB3FORMS_ACCESS_KEY";
+  var PLACEHOLDER_KEY = "1c98fbc6-fa65-49b6-bacc-823763d4fef1";
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function bindForm(form, position) {
