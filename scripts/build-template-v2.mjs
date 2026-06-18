@@ -82,7 +82,7 @@ function formMarkup(idPrefix, source) {
       `<input type="email" id="${idPrefix}-email" name="email" aria-label="Twój adres e-mail" placeholder="Twój adres e-mail" autocomplete="email" required>` +
       `<span class="mag"><button type="submit" class="btn btn-accent">Chcę wcześniejszy dostęp <span class="arr">→</span></button></span>` +
     `</div>` +
-    `<input class="hp-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">` +
+    `<input class="hp-field" type="text" name="bl_hp" tabindex="-1" autocomplete="off" aria-hidden="true">` +
     `<input class="hp-field" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">` +
     `<p class="err" role="alert" hidden></p>` +
     `<details class="signup-extra"><summary>Branża i miasto — opcjonalnie, pomożesz nam ustawić kolejność branż</summary>` +

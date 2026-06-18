@@ -120,7 +120,7 @@
       var err = form.querySelector(".err");
       var email = form.querySelector("input[type=email]");
       var consent = form.querySelector("input[name=consent]");
-      var hp = form.querySelector("input[name=website]");
+      var hp = form.querySelector("input[name=bl_hp]");
       var botcheck = form.querySelector("input[name=botcheck]");
       var btn = form.querySelector("button[type=submit]");
 
