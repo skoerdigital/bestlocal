@@ -47,6 +47,51 @@ html:not(.anim) .rv { opacity: 1 !important; transform: none !important; filter:
 .sec { padding-block: clamp(64px, 7vw, 100px); }
 .sec[style*="padding-top"] { padding-top: clamp(64px, 7vw, 100px) !important; }
 
+/* ============================================================
+   SECTION FLOW — cohesive full-bleed bands.
+   The prototype rendered dark/sage sections as detached rounded
+   CARDS with side+vertical margins, so the page read as a stack
+   of floating rectangles with gaps. We make every band span
+   edge-to-edge and connect: pine bands emerge from and sink into
+   the cream canvas with one soft scoop. Cream corner-notches blend
+   with the page; where a pine scoop meets a SAGE band we tuck the
+   sage up (negative margin + matching padding + z-index) so the
+   notch fills with sage, not cream — no visible seam.
+   ============================================================ */
+:root { --band-scoop: clamp(28px, 4vw, 44px); }
+
+.sec { margin: 0; }                 /* drop the old detached-card margins */
+
+/* hero flows straight into #problem — one continuous dark intro, no seam */
+.hero { border-radius: 0 !important; }
+#problem.sec-dark {
+  margin: 0;
+  border-radius: 0 0 var(--band-scoop) var(--band-scoop);
+  position: relative; z-index: 2;
+}
+/* sage bands tuck up under the pine scoop above them so the rounded corner
+   notches fill with sage, not the cream canvas (id+class beats the old v3 radius) */
+#jak.sec, #porownanie.sec {
+  position: relative; z-index: 1;
+  border-radius: 0;
+  margin-top: calc(-1 * var(--band-scoop));
+  padding-top: calc(clamp(64px, 7vw, 100px) + var(--band-scoop));
+}
+
+/* mid-page dark band: rises from cream (top scoop = seamless cream notch),
+   sinks into the sage compare band below (bottom scoop + sage tuck) */
+#dla-kogo.sec-dark {
+  margin: 0;
+  border-radius: var(--band-scoop);
+  position: relative; z-index: 2;
+}
+
+/* final dark CTA rises from the cream FAQ, then meets the dark footer flush */
+#final.sec-dark {
+  margin: 0;
+  border-radius: var(--band-scoop) var(--band-scoop) 0 0;
+}
+
 /* ---- FAQ: open via class only (no per-element JS measuring) ---- */
 .faq.open .faq-a { max-height: 1000px; }
 
@@ -78,16 +123,6 @@ html { overflow-x: clip; }
 .err[hidden] { display: none; }
 .sec-dark .err, .final .err { color: #ffb4a2; }
 .mag { display: inline-block; }
-
-/* ---- founder photo placeholder (image-slot was a dev tool) ---- */
-.founder-photo-ph {
-  width: 180px; height: 180px; flex: none;
-  border-radius: 50%;
-  background: var(--sage);
-  color: rgba(22, 48, 31, 0.55);
-  display: grid; place-items: center;
-}
-.founder-photo-ph svg { width: 64px; height: 64px; }
 
 /* ---- accessibility helpers ---- */
 .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

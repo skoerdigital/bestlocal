@@ -18,14 +18,13 @@ while ((m = faqRe.exec(body)) !== null) {
   if (q && a) faqs.push({ q, a });
 }
 
-// ---- 2. rebrand ----
+// ---- 2. rebrand + domain ----
 body = body.replace(/LocalExpert/g, "BestLocal");
+body = body.replace(/kontakt@localexpert\.pl/g, "kontakt@bestlocal.pl")
+           .replace(/kontakt@\{domena\}\.pl/g, "kontakt@bestlocal.pl");
 
-// ---- 3. founder photo placeholder (image-slot is a dev tool) ----
-body = body.replace(
-  /<image-slot[^>]*><\/image-slot>/g,
-  `<div class="founder-photo-ph" aria-hidden="true"><svg viewBox="0 0 24 24" width="64" height="64" fill="none"><circle cx="12" cy="8.5" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="currentColor"/></svg></div>`
-);
+// ---- 3. remove the founder section entirely (per product decision) ----
+body = body.replace(/<section class="sec" id="zalozyciel"[\s\S]*?<\/section>/g, "");
 
 // ---- 4. FAQ: start closed, drop React inline max-height ----
 body = body.replace(/class="faq open"/g, 'class="faq"')
@@ -69,7 +68,7 @@ body = body.replace(/<form class="signup"[^>]*>[\s\S]*?<\/form>/g, (match) => {
 body = body.replace(/<table class="compare">([\s\S]*?)<\/table>/, (tbl) => {
   return tbl
     // header row cells -> scope=col
-    .replace(/<thead>([\s\S]*?)<\/thead>/, (th) => th.replace(/<th(?![^>]*scope)/g, '<th scope="col"'))
+    .replace(/<thead>([\s\S]*?)<\/thead>/, (th) => th.replace(/<th(?=[ >])(?![^>]*scope)/g, '<th scope="col"'))
     // first cell of each body row -> row header
     .replace(/<tr>\s*<td>/g, '<tr><th scope="row">')
     .replace(/(<th scope="row">[\s\S]*?)<\/td>/g, "$1</th>");

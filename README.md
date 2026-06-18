@@ -58,10 +58,11 @@ npm run build:all    # pełna regeneracja z prototypu Reactowego:
 | Co | Gdzie | Domyślnie |
 |----|-------|-----------|
 | **Klucz formularza** (Web3Forms) | `name="access_key"` w `index.template.html` (2×) → potem `npm run build:html` | `YOUR_WEB3FORMS_ACCESS_KEY` |
-| **Domena** | `index.template.html`, `public/sitemap.xml`, `public/robots.txt` | `https://bestlocal.pl` |
-| **Administrator danych / założyciel** | `{PODMIOT}`, `{Imię i nazwisko}`, `{BLOK_ZALOZYCIELA}` w `index.template.html` | placeholdery |
-| **Zdjęcie założyciela** | sekcja „Kto za tym stoi” — placeholder `.founder-photo-ph`; wstaw `<img>` | placeholder |
+| **Administrator danych** | `{PODMIOT}` w `index.template.html` (zgoda formularza + stopka) | placeholder |
 | **Treści prawne** | `public/polityka-prywatnosci.html`, `public/regulamin.html` | szkielet RODO |
+
+> Domena `bestlocal.pl` jest już ustawiona w całym serwisie (canonical, OG, JSON-LD, e-mail).
+> Sekcja założyciela została usunięta — nie ma już placeholderów `{Imię i nazwisko}` / `{BLOK_ZALOZYCIELA}`.
 
 ### Formularz zapisu (Web3Forms)
 
